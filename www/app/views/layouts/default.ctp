@@ -2,7 +2,8 @@
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<title>SMSCanada</title>
+	<title>SMSCanada - <?php echo $title_for_layout; ?></title>
+			
     
 <?php
 	echo $html->meta('icon');
@@ -66,7 +67,11 @@
 			</div>
 
 			<div class='grid_9'>
-				<p>grid 4</p>
+				<?php $session->flash(); ?>
+
+				<p>
+				<?php echo $content_for_layout; ?>
+				</p>
 			</div>
 			<div class='clear'>&nbsp;</div>
 			

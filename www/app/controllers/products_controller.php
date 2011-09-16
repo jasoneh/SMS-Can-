@@ -17,18 +17,20 @@ class ProductsController extends AppController {
 	var $scaffold;
 	
 	/* List products, paginate them and order by name */
-	/*
-	function list(){
-		var $paginate = array(
-			'fields' => array('Product.id', 'Product.name'),
-			'limit' => 50,
-			'order' => array(
-				'Product.name' => 'asc'
-			)
-		);
-	}
-	*/
+	var $paginate = array(
+		'field' => array('Product.id', 'Product.name'),
+		'limit' => 50,
+		'order' => array(
+			'Product.name' => 'asc'
+		)
+	);
 	
+	/* Default page, paginates the products */
+	function index(){
+		echo "products.index()";
+		$data = $this->paginate('Product');
+		$this->set('data', $data);
+	}
 	
 	/* Fetch a product with given ID number, if product doesn't exist, throw an exception and render a 404 page */
 	function view($id = null){
