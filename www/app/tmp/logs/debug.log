@@ -114,3 +114,6 @@
 2011-06-19 22:20:23 Notice: Notice (8): Undefined index:  name in [/Applications/MAMP/htdocs/smscanada/www/app/views/elements/categories.ctp, line 14]
 2011-06-19 22:25:28 Notice: Notice (8): Undefined index:  name in [/Applications/MAMP/htdocs/smscanada/www/app/views/elements/categories.ctp, line 13]
 2011-06-19 22:25:31 Notice: Notice (8): Undefined index:  name in [/Applications/MAMP/htdocs/smscanada/www/app/views/elements/categories.ctp, line 13]
+2011-09-16 18:05:42 Debug: Notice (8): Undefined variable: paginator in [C:\wamp\www\SMS-Can-\www\app\views\products\index.ctp, line 14]
+2011-09-16 18:05:45 Debug: Notice (8): Undefined variable: paginator in [C:\wamp\www\SMS-Can-\www\app\views\products\index.ctp, line 14]
+2011-09-16 18:05:47 Debug: Notice (8): Undefined variable: paginator in [C:\wamp\www\SMS-Can-\www\app\views\products\index.ctp, line 14]

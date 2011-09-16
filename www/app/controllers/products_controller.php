@@ -14,7 +14,8 @@ class ProductsController extends AppController {
 
 	var $helpers = array('Html');
 
-	var $scaffold;
+	var $scaffold;	// creates dummy functions for all common operations
+	
 	
 	/*var $uses = array();*/
 	/*
