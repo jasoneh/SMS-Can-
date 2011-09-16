@@ -1,6 +1,5 @@
 
-<div id="main">
-	
+<div id="main">	
 	<div class="products index">
 	<h2><?php __('Featured products');?></h2>
 	<ul>
