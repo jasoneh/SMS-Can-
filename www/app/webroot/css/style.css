@@ -1,0 +1,204 @@
+/*
+    SMS Canada
+    Front page layout
+    @author Mathias Tervo - 2011
+*/
+body {
+    font-family: "Arial","Helvetica",sans-serif;
+    font-size: 12px;
+    text-align: left;
+    margin: 0;
+    padding:  0;
+}
+.container {
+    background-color: #fff;
+}
+
+/* Typography */
+h2 { color: #39f; }
+
+p{
+    font-size: 12px;
+}
+
+
+/* Containers and page elements */
+.header{
+    background: #303030;
+}
+
+.footer{
+    border-top: 1px solid #39f;
+    padding-top: 12px;
+}
+
+
+ul{
+    list-style-type: none;
+}
+
+/* Header objects */
+
+#top-row{
+    /*
+    margin:  0;
+    padding-left:  18px;
+    parring-right: 18px;
+    background: #cccccc;
+    color: #fff;
+    */
+    height: 121px;
+    margin: 0 auto;
+    position: relative;
+    background: url('http://net.tutsplus.com/wp-content/themes/tuts/images/global/header_gradient.jpg') no-repeat 110px 60px;
+    z-index: 99;
+}
+#header-top{
+
+    padding:  8px;
+}
+.header-menu{
+    border-bottom: 4px solid #eee;
+}
+.navmenu ul {
+    margin: 0;
+    padding: 8px;
+	list-style-type: none;
+    list-style-image: none;
+}
+
+    .navmenu li {
+        display: inline;}
+
+        .navmenu ul li a {
+            font-size: 18px;
+            font-weight: bold;
+            text-shadow: 0 1px 0 #EEEEEC;
+            color: #c60;
+            width: 125px;
+            margin-right: 24px;
+            text-decoration: none;
+            border-bottom:  2px solid #c60;
+        }
+        .navmenu ul li a:hover {
+            color: #39f;
+        }
+
+.navleft{
+    float: left;
+}
+.navright{
+    float: right;
+}
+
+/* Tables */
+table{
+    border-collapse: collapse;
+
+}
+    tr{
+        border-bottom:  1px solid #303030;
+    }
+    th, td{
+        padding: 8px;
+    }
+    th{
+        background: #39f;
+        color: #fff;
+        text-shadow: 0 1px 0 #303030;
+    }
+    td{
+        border-bottom: 1px solid #333;
+    }
+
+    .row_1{
+        background: #e4f8ff;
+    }
+    .row_2{
+        background: #fff;
+    }
+
+#search-input{
+    font-size: 14px;
+    color: #333;
+}
+#search-submit{
+
+}
+
+#product-detail-container{
+    border: 1px solid #F5F5F1;
+}
+
+/* Product listing */
+.product-item{
+    width: 170px;
+    padding: 6px;
+    background: white;
+    border: 1px solid #ECECEC;
+    margin-right: 8px;
+    position: relative;
+}
+
+ul.listings{
+    float: left;
+    clear: left;
+    margin-right: -10px;
+}
+.listings li{
+    float: left;
+}
+.product-title{
+    color: #666;
+    line-height: 15px;
+    margin-bottom: 0;
+    margin-top: 5px;
+    height: 15px;
+    line-height: 15px;
+    overflow: hidden;
+    color: #666;
+}
+.product-manufacturer{
+    color: #B6B6B6;
+    height: 14px;
+    margin-bottom: 0;
+    line-height: 14px;
+}
+.product-price{
+    position: absolute;
+    bottom: 5px;
+    right: 6px;
+    color: #78C042;
+    margin-bottom: 0;
+    float: right;
+    line-height: 14px;
+    margin-top: -14px;
+}
+
+/* Product detail */
+.product-details{
+    float: left;
+}
+.product-add-to-cart{
+    float: right;
+    padding:  4px;
+    background: #58da58;
+    border:  1px solid #33dd33;
+    border-radius: 4px;
+    box-shadow: 4px 4px 10px #888;
+}
+.product-add-to-cart a{
+    color: #fff;
+    text-decoration: none;
+}
+
+
+#sidebar-right{
+    margin-top: 13px;
+    margin-right: 30px;
+
+    padding-left: 8px;
+    padding-right: 8px;
+
+    border-left: 1px solid #F5F5F1;
+}

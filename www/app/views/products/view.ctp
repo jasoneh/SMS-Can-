@@ -1,9 +1,49 @@
 <div id="sidebar">
+<?php /*
 	<h4>Categories</h4>
 	<?php 
 		echo $this->renderElement('categories');
 	?>
+	*/
+?>
 </div>
+
+
+
+<?php 	
+	echo "<h1>" . $product['Product']['name'] . "</h1>";
+	if($session == 'french'){
+		echo "<h4>" . $product['Product']['description_fr'] . "</h4>";
+	}else{
+		echo "<h4>" . $product['Product']['description'] . "</h4>";
+	}
+?>
+	<p><a href="dumy_url=<?php echo $product['Product']['category_id']; ?>">List products of this category</a></p>
+<?php
+	// TODO: Do dealer type checkup in user model
+	$user = 'house-dealer'; # FIXME: temporary fix
+	if($user == 'house-dealer'){
+		$price = $product['Product']['price_house'];
+	}else{
+		$price = $product['Product']['price_wholesale'];		
+	}
+?>
+	<p>Price: <?php echo $price; ?></p>
+	
+<?php 
+	// Loop over all images belonging to this Product
+	foreach ($product['Image'] as $image){
+		echo $image['filename'] . "<br/>";		
+		echo $image['caption'] . "<br/>";
+		echo "<hr/>";
+	}
+
+?>
+
+
+<?php 	echo "<pre>"; print_r($product); echo "</pre>";?>
+
+
 
 <div id="main">
 	<div class="products view">

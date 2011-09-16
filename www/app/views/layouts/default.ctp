@@ -1,76 +1,84 @@
-<?php
-/* SVN FILE: $Id$ */
-
-/**
- *
- * PHP versions 4 and 5
- *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
- *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
- * @package       cake
- * @subpackage    cake.cake.libs.view.templates.layouts
- * @since         CakePHP(tm) v 0.10.0.1076
- * @version       $Revision$
- * @modifiedby    $LastChangedBy$
- * @lastmodified  $Date$
- * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
- */
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-	<?php echo $html->charset(); ?>
-	<title>
-		<?php __('CakePHP: the rapid development php framework:'); ?>
-		<?php echo $title_for_layout; ?>
-	</title>
-	<?php
-		echo $html->meta('icon');
+	<title>SMSCanada</title>
+    
+<?php
+	echo $html->meta('icon');
 
-		echo $html->css('main');
-
-		echo $scripts_for_layout;
-	?>
+	#echo $html->css('main');
+	echo $html->css('960grid');
+	echo $html->css('style');
+	echo $html->css('formalize');
+	
+	echo $scripts_for_layout;
+?>
 </head>
-
 <body>
-	<section id="menu">
-	  <div class="content">
-	    <nav>
-			<span class="navblock"><a href="#">SMSCanada</a></span>
-			<span class="navblock"><a href="#">Register</a></span>
-			<span class="navblock"><a href="#">Log in</a></span>
-			<span class="navblock"><input type="text" /><input type="submit" value="Search" /></span>
-	    </nav>
-	  </div>
-	</section>
 
-	<div id="container">
-		
-		<div id="content">
+        <div id="top-row">
+            <div class="navleft">
+                <h1>SMS Canada</h1>
+            </div>
+            <div class="navmenu navright">
+                <ul>
+                    <li>Login</li>
+                </ul>
+            </div>
 
-			<?php $session->flash(); ?>
+            <div class='clear'>&nbsp;</div>
+        </div>
 
-			<?php echo $content_for_layout; ?>
+
+		<div class="container container_12">
+
+			<div class="grid_12 header-menu">
+                <!-- English and French menu items based on language selection -->
+                <div class="navmenu navleft">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/products/list">Products</a></li>
+                        <li><a href="#">Parts charts</a></li>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/about/contact/">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="navmenu navright">
+                    <ul>
+                        <form method="GET" action="#">
+                        <li><input type="text" id="search-query" name="search-query"></li>
+                        <li><input type="submit" id="search-submit" value="Search"/></li>
+                        </form>
+
+                    </ul>
+                </div>
+
+                <div class='clear'>&nbsp;</div>
+
+			</div>
+
+			<div class='clear'>&nbsp;</div>
+            
+			<div class='grid_3'>
+				<p>grid 3</p>
+			</div>
+
+			<div class='grid_9'>
+				<p>grid 4</p>
+			</div>
+			<div class='clear'>&nbsp;</div>
+			
+            <!-- footer -->
+            <div class="grid_12 footer">
+				<a href="#">About</a> |
+                <a href="#">Contact</a> |
+                <a href="#">Legal</a>
+			</div>
+            <div class="clear">&nbsp;</div>
 
 		</div>
-		<div id="footer">
-			<?php echo $html->link(
-					$html->image('cake.power.gif', 
-						array('alt'=> __("CakePHP: the rapid development php framework", true), 'border'=>"0")),
-						'http://www.cakephp.org/',
-						array('target'=>'_blank'), null, false
-					);
-			?>
-		</div>
-	</div>
-	<?php echo $cakeDebug; ?>
-</body>
+	</body>
+
 </html>

@@ -7,7 +7,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'port' => '/Applications/MAMP/tmp/mysql/mysql.sock',
 		'login' => 'root',
-		'password' => '',
+		'password' => 'root',
 		'database' => 'smscanada_cake_dev',
 		'encoding' => 'y'
 	);
