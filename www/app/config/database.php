@@ -1,15 +1,18 @@
 <?php
-class DATABASE_CONFIG {
+if(file_exists('app/config/database.local.php')){
+	require_once('database.local.php');
+}else{
+	class DATABASE_CONFIG {
 
-	var $default = array(
-		'driver' => 'mysql',
-		#'connect' => 'mysql_connect',
-		'host' => 'localhost',
-		'port' => '/Applications/MAMP/tmp/mysql/mysql.sock',
-		'login' => 'root',
-		'password' => 'root',
-		'database' => 'smscanada_cake_dev',
-		'encoding' => 'y'
-	);
+		var $default = array(
+			'driver' => '',
+			'host' => '',
+			'port' => '',
+			'login' => '',
+			'password' => '',
+			'database' => '',
+			'encoding' => 'y'
+		);
+	}
 }
 ?>
