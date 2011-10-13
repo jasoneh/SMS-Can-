@@ -1,7 +1,7 @@
 <?php
-	echo $this->Form->create('User',array('action'=>'register'));
-	echo $this->Form->input('username');
-	echo $this->Form->end('Register');
+	echo $form->create('User',array('action'=>'register'));
+	echo $form->input('username');
+	echo $form->end('Register');
 	
 	/*
 		<?php

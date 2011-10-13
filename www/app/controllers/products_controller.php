@@ -32,12 +32,20 @@ class ProductsController extends AppController {
 		$this->set('data', $data);
 	}
 	
-	/* Fetch a product with given ID number, if product doesn't exist, throw an exception and render a 404 page */
+	/* Show product details */
 	function view($id = null){
 
 		$this->session->langue = 'french';
 		$this->set('product', $this->Product->findById($id) );
 		
+	}
+	
+	/**
+	*	List products by category
+	**/
+	function category($category_id=null){
+		$products = $this->paginate('Product', array('Product.category_id' => $category_id));
+		$this->set('products', $products);
 	}
 	
 	/*var $uses = array();*/

@@ -1,4 +1,5 @@
 <div id="sidebar">
+
 <?php /*
 	<h4>Categories</h4>
 	<?php 
@@ -8,8 +9,12 @@
 ?>
 </div>
 
+<div id="main">
+	<div class="products view">
+	<h2><?php  __('Product');?></h2>
 
 
+	<img src="/smscanada/app/webroot/media/products/dummy_product.jpg" />
 <?php 	
 	echo "<h1>" . $product['Product']['name'] . "</h1>";
 	if($session == 'french'){
@@ -19,6 +24,11 @@
 	}
 ?>
 	<p><a href="dumy_url=<?php echo $product['Product']['category_id']; ?>">List products of this category</a></p>
+	<p>
+	<?php echo $html->link("List products of this category", 
+		array('controller' => 'products', 'action' => 'category', $product['Category']['id'])); ?>
+	</p>
+	
 <?php
 	// TODO: Do dealer type checkup in user model
 	$user = 'house-dealer'; # FIXME: temporary fix
@@ -41,81 +51,14 @@
 ?>
 
 
+<hr/>
+<p>Below is for development only</p>
+
+
+<?php echo $html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?>
+				
 <?php 	echo "<pre>"; print_r($product); echo "</pre>";?>
 
-
-
-<div id="main">
-	<div class="products view">
-	<h2><?php  __('Product');?></h2>
-		<dl><?php $i = 0; $class = ' class="altrow"';?>
-			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
-			<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-				<?php echo $product['Product']['id']; ?>
-				&nbsp;
-			</dd>
-			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Category'); ?></dt>
-			<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-				<?php echo $html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?>
-				&nbsp;
-			</dd>
-			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Parts Number'); ?></dt>
-			<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-				<?php echo $product['Product']['parts_number']; ?>
-				&nbsp;
-			</dd>
-			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Name'); ?></dt>
-			<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-				<?php echo $product['Product']['name']; ?>
-				&nbsp;
-			</dd>
-			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Name French'); ?></dt>
-			<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-				<?php echo $product['Product']['name_french']; ?>
-				&nbsp;
-			</dd>
-			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Description'); ?></dt>
-			<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-				<?php echo $product['Product']['description']; ?>
-				&nbsp;
-			</dd>
-			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Description French'); ?></dt>
-			<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-				<?php echo $product['Product']['description_french']; ?>
-				&nbsp;
-			</dd>
-			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Detail'); ?></dt>
-			<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-				<?php echo $product['Product']['detail']; ?>
-				&nbsp;
-			</dd>
-			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Detail French'); ?></dt>
-			<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-				<?php echo $product['Product']['detail_french']; ?>
-				&nbsp;
-			</dd>
-
-			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('New'); ?></dt>
-			<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-				<?php echo $product['Product']['new']; ?>
-				&nbsp;
-			</dd>
-			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Sale'); ?></dt>
-			<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-				<?php echo $product['Product']['sale']; ?>
-				&nbsp;
-			</dd>
-			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
-			<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-				<?php echo $product['Product']['created']; ?>
-				&nbsp;
-			</dd>
-			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Modified'); ?></dt>
-			<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-				<?php echo $product['Product']['modified']; ?>
-				&nbsp;
-			</dd>
-		</dl>
 	</div>
 
 	<div class="related">

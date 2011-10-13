@@ -2,10 +2,15 @@
 <div id="main">	
 	<div class="products index">
 	<h2><?php __('Featured products');?></h2>
+	
 	<ul>
 	<?php foreach ($data as $key => $value): ?>
 		<li>
-			<a href="id=<?php echo $value['Product']['id']?>"><?php echo $value['Product']['description'] ?></a>
+			<?php echo $html->link(
+				$value['Product']['description'], 
+				array('controller' => 'products', 'action' => 'view', $value['Product']['id']), 
+				array('escape' => false));
+			?>
 		</li>
 	<?php endforeach; ?>
 	</ul>

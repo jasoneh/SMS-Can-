@@ -11,11 +11,15 @@ class UsersController extends AppController {
         $this->Auth->allow('register');
     }
 
+    /**
+     * CakePHP handles the login functionality for us
+     * @return void
+     */
 	function login(){
 		
 	}
 	function logout(){
-		
+		$this->redirect($this->Auth->logout());
 	}
 	
 	function register() {

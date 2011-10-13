@@ -12,9 +12,11 @@ body {
 }
 .container {
     background-color: #fff;
+    border: 1px solid #303030;
 }
 
 /* Typography */
+
 h2 { color: #39f; }
 
 p{
@@ -23,14 +25,53 @@ p{
 
 
 /* Containers and page elements */
-.header{
+header{
+    display: block;}
+    nav{
+        background: #2B2B2B;
+        padding: 15px 0;}
+
+    nav ul{
+        margin: 0;
+        padding: 0;
+    }
+    nav li{
+        float: right;
+        margin-right: 350px;
+        font-size: 18px;
+    }
+    nav .nav-home{
+        float: left;
+    }
+    nav .nav-last{
+        border-left: 1px dotted #747474;
+        color: #5C5C5C;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 0 0 0 20px;
+    }
+
+
+#header{
     background: #303030;
 }
+    #header h1{
+        overflow: hidden;
+        float: left;
+    }
 
 .footer{
     border-top: 1px solid #39f;
     padding-top: 12px;
 }
+
+.sidebar-left{
+    border:  1px solid #6495ed;
+}
+#content{
+    border:  1px solid #6495ed;
+}
+
 
 
 ul{
@@ -50,7 +91,6 @@ ul{
     height: 121px;
     margin: 0 auto;
     position: relative;
-    background: url('http://net.tutsplus.com/wp-content/themes/tuts/images/global/header_gradient.jpg') no-repeat 110px 60px;
     z-index: 99;
 }
 #header-top{
@@ -60,6 +100,7 @@ ul{
 .header-menu{
     border-bottom: 4px solid #eee;
 }
+/*
 .navmenu ul {
     margin: 0;
     padding: 8px;
@@ -75,7 +116,6 @@ ul{
             font-weight: bold;
             text-shadow: 0 1px 0 #EEEEEC;
             color: #c60;
-            width: 125px;
             margin-right: 24px;
             text-decoration: none;
             border-bottom:  2px solid #c60;
@@ -90,6 +130,7 @@ ul{
 .navright{
     float: right;
 }
+*/
 
 /* Tables */
 table{
@@ -131,15 +172,27 @@ table{
 }
 
 /* Product listing */
+.productrow{
+    width: 800px;
+    border: 1px solid #eee;
+}
 .product-item{
-    width: 170px;
-    padding: 6px;
+    padding: 8px;
     background: white;
     border: 1px solid #ECECEC;
     margin-right: 8px;
+    margin-bottom: 8px;
     position: relative;
+    float: left;
 }
+.product-item-small{
+    width: 170px;
 
+}
+.product-image-small{
+    width: 132px;
+    height: 132px;
+}
 ul.listings{
     float: left;
     clear: left;
