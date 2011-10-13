@@ -21,57 +21,70 @@
     <nav>
         <div class="container_12">
             <ul class="clearfix">
-                <li class="nav-home"><a href="/">Home</a> </li>
-                <li class="nav-last">Login</li>
-                <li><a href="#">ordinary</a></li>
+                <li class="nav-home"><a href="/"><span class="olive">SMS</span><span class="grey">Canada</span></a>
+                </li>
+                <li class="nav-last"><span class="olive">Login</span> </li>
+                <li><a href="#">products</a></li>
+                <li><a href="#">parts charts</a></li>
+                <li><a href="#">dealers</a></li>
+                <li><a href="#">contact</a></li>
             </ul>
         </div>
     </nav>
 </header>
 
-<div class="container_12">
-    <div class="grid_12">
-        <p>
-          SMSCanada -header 940
-        </p>
-    </div>
-    <!-- end .grid_12 -->
-    <div class="clear"></div>
-    <div class="grid_7">
-        <ul class="navmenu">
-            <li><b>SMSCanada</b></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">Parts charts</a></li>
-        </ul>
-    </div>
-    <div class="grid_5">
-        <p>
-            SMSCanada -header 380
-        </p>
-    </div>
-    <!-- end .grid_5 -->
+<section id="mainsection">
+    
+    <div class="container_12 main box_shadow">
+        <div class="grid_12">
+            <p>
+              SMSCanada -header 940
+            </p>
+        </div>
+        <!-- end .grid_12 -->
+        <div class="clear"></div>
+        <div class="grid_7">
+            <ul class="navmenu">
+                <li><b>SMSCanada</b></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Parts charts</a></li>
+            </ul>
+        </div>
+        <div class="grid_5">
+            <p>
+                SMSCanada -header 380
+            </p>
+        </div>
+        <!-- end .grid_5 -->
 
-    <div class="clear"></div>
-    <div class="grid_3">
-        <p>
-            220 sidebar categories
-      </p>
-    </div>
-    <!-- end .grid_3 -->
-    <div class="grid_9">
-        <p>
-            700 - main content
-        </p>
-    </div>
-    <!-- end .grid_9 -->
+        <div class="clear"></div>
+        <div class="grid_3">
+            <p>
+                220 sidebar categories
+          </p>
+        </div>
+        <!-- end .grid_3 -->
+        <div class="grid_9">
+            <p>
+                <?php $session->flash(); ?>
+                700 - main content
+                <div id="content">
+                    <?php echo $content_for_layout; ?>
+                </div>
+            </p>
+        </div>
+        <!-- end .grid_9 -->
 
-    <div class="grid_12">
-        <p>
-          SMSCanada -footer 940
-        </p>
-  </div>
-  <!-- end .grid_12 -->
-</div>
-<!-- end .container_16 -->
+        <div class="grid_12">
+            <p>
+              SMSCanada -footer 940
+            </p>
+      </div>
+      <!-- end .grid_12 -->
+    </div>
+    <!-- end .container_16 -->
+
+</section>
+
 </body>
 </html>

@@ -27,17 +27,11 @@ h2 {
   text-align: center;
 }
 
-p {
-  border: 1px solid #666;
-  overflow: hidden;
-  padding: 10px 10px;
-}
-
 .container_12,
 .container_16,
 .container_24 {
-  background-color: #fff;
-  background-repeat: repeat-y;
+  /*background-color: #fff;*/
+  /*background-repeat: repeat-y;*/
   margin-bottom: 20px;
 }
 
