@@ -15,7 +15,12 @@ class ProductsController extends AppController {
 	var $helpers = array('Html', 'Session', );
 
 	var $scaffold;
-	
+
+	// Allow following actions to non logged in users
+    function beforeFilter() {
+        $this->Auth->allow('*');
+    }
+
 	/* List products, paginate them and order by name */
 	var $paginate = array(
 		'field' => array('Product.id', 'Product.name'),
@@ -27,7 +32,6 @@ class ProductsController extends AppController {
 	
 	/* Default page, paginates the products */
 	function index(){
-		echo "products.index()";
 		$data = $this->paginate('Product');
 		$this->set('data', $data);
 	}

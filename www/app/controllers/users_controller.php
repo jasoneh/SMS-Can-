@@ -8,7 +8,7 @@ class UsersController extends AppController {
 
 	// Allow a non-authed user to register
     function beforeFilter() {
-        $this->Auth->allow('register');
+        $this->Auth->allow('*');
     }
 
     /**
@@ -19,7 +19,7 @@ class UsersController extends AppController {
 		
 	}
 	function logout(){
-		$this->redirect($this->Auth->logout());
+		#$this->redirect($this->Auth->logout());
 	}
 	
 	function register() {

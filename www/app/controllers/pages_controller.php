@@ -60,7 +60,7 @@ class PagesController extends AppController {
  */
 	var $uses = array();
 
-// Allow a non-authed user to register
+    // Allow a non-authed user to register
     function beforeFilter() {
         $this->Auth->allow(array('display'));
     }

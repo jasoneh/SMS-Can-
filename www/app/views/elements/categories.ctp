@@ -6,16 +6,23 @@
 ?>
 
 <ul>
-<?php 
-$categories = $this->requestAction('categories/index');
+<?php
+/*
+$categories = $this->requestAction('categories/all');
+    print_r($categories);
 foreach($categories as $category):
 ?>
-	<li><?php echo $html->link(__($category['Category']['name'], true), 
+	<li><?php echo $html->link(__($category['Category']['name'], true),
 			array('controller' => 'products', 'action' => 'category', $category['Category']['id'])
-		); 
+		);
 		?>
 	</li>
-<?php 	
+<?php
 endforeach;
+*/
 ?>
+
+categories
+    categories
+    categories
 </ul>

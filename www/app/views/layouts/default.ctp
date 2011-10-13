@@ -44,11 +44,18 @@
         <!-- end .grid_12 -->
         <div class="clear"></div>
         <div class="grid_7">
+            <?
+/*
             <ul class="navmenu">
                 <li><b>SMSCanada</b></li>
                 <li><a href="#">Products</a></li>
                 <li><a href="#">Parts charts</a></li>
             </ul>
+ */
+
+            ?>
+        <?php echo $this->renderElement('categories'); ?>
+            
         </div>
         <div class="grid_5">
             <p>
