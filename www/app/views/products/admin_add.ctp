@@ -3,8 +3,10 @@
 	<fieldset>
  		<legend><?php __('Add Product');?></legend>
 	<?php
-		echo $form->input('category_id');
-		echo $form->input('manufacturer_id');
+
+
+		echo $form->input('category_id', $categories);
+		echo $form->select('manufacturer_id', $manufacturers);
 		echo $form->input('parts_number');
 		echo $form->input('name');
 		echo $form->input('name_french');

@@ -14,7 +14,7 @@ class ProductsController extends AppController {
 
 	var $helpers = array('Html', 'Session', );
 
-    var $uses = array('Product', 'Category');
+    var $uses = array('Product', 'Category', 'Manufacturer');
 	var $scaffold;
 
 	// Allow following actions to non logged in users
@@ -59,7 +59,9 @@ class ProductsController extends AppController {
         );
 		$this->set(compact('products', 'category_name'));
 	}
-	
+
+
+    
 	/*var $uses = array();*/
 /*
 	function display() {
@@ -110,4 +112,56 @@ class ProductsController extends AppController {
 		} // endif
 	}
 	*/
+
+
+
+    /**
+     * Admin controllers
+     *
+     * */
+
+    function admin_index(){
+        $products = $this->paginate('Product',
+                                    array('Product.category_id' => $category_id),
+                                    array('order' => 'Product.name')
+        );
+		$this->set(compact('products', 'category_name'));
+    }
+
+
+    function admin_add(){
+        // on POST
+        if(!empty($this->data)){
+            if($this->Product->save($this->data)){
+                 //Set a session flash message and redirect.
+                $this->Session->setFlash("Product Saved!");
+                $this->redirect('/admin/products/');   // TODO: redirect to edit page of this product
+            }
+        }else{
+            $categories = $this->Category->find('list');
+            $manufacturers = $this->Manufacturer->find('list');
+            $this->set(
+                compact('manufacturers', 'categories')
+            );
+        }
+
+
+/*        if(isset($this->Product->data)){
+			$this->Product->set($this->data);
+			if($this->Product->validates()){
+				if($this->Product->save()){
+					$this->Session->setFlash('Product saved successfully');
+				}
+			}else{
+				$errors = $this->Product->invalidFields();
+				$this->Session->setFlash(implode(',', $errors));
+			}
+
+			// redirect to the product index page
+			$this->redirect(array(
+				'controller' => 'products',
+				'action' => 'index'
+			));
+		} // endif*/
+    }
 }

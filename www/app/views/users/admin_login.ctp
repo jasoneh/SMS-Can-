@@ -1,3 +1,5 @@
+admin_login.ctp
+
 
 <?php
     #echo $this->Session->flash('auth');
@@ -9,5 +11,5 @@
     echo $form->label('password', 'Password');
 	echo $form->password('password', array('label' => 'password'));
 	echo $form->end('Login');
-	
+
 ?>

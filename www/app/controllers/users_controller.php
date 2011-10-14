@@ -32,5 +32,14 @@ class UsersController extends AppController {
 		}
     }
 
+    /**
+     * Admin controllers
+     */
+
+    function admin_login(){
+        
+    }
+    
 }
+
 ?>
