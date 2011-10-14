@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>960 Grid System &mdash; Demo</title>
+<title>SMS Canada &mdash; </title>
 <?php
     echo $html->css('960/reset');
     echo $html->css('960/text');
@@ -44,18 +44,7 @@
         <!-- end .grid_12 -->
         <div class="clear"></div>
         <div class="grid_7">
-            <?
-/*
-            <ul class="navmenu">
-                <li><b>SMSCanada</b></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Parts charts</a></li>
-            </ul>
- */
-
-            ?>
-        <?php echo $this->renderElement('categories'); ?>
-            
+            grid_7
         </div>
         <div class="grid_5">
             <p>
@@ -68,6 +57,7 @@
         <div class="grid_3">
             <p>
                 220 sidebar categories
+                <?php echo $this->renderElement('categories'); ?>
           </p>
         </div>
         <!-- end .grid_3 -->

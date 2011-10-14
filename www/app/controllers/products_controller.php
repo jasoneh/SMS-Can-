@@ -14,6 +14,7 @@ class ProductsController extends AppController {
 
 	var $helpers = array('Html', 'Session', );
 
+    var $uses = array('Product', 'Category');
 	var $scaffold;
 
 	// Allow following actions to non logged in users
@@ -43,13 +44,20 @@ class ProductsController extends AppController {
 		$this->set('product', $this->Product->findById($id) );
 		
 	}
-	
-	/**
-	*	List products by category
-	**/
+
+    /**
+     * List products by category
+     * @param null $category_id
+     */
 	function category($category_id=null){
-		$products = $this->paginate('Product', array('Product.category_id' => $category_id));
-		$this->set('products', $products);
+        $this->Category->id = $category_id;
+        $category_name = $this->Category->field('description');
+
+		$products = $this->paginate('Product',
+                                    array('Product.category_id' => $category_id),
+                                    array('order' => 'Product.name')
+        );
+		$this->set(compact('products', 'category_name'));
 	}
 	
 	/*var $uses = array();*/

@@ -1,4 +1,5 @@
 
 *.local.php
 .idea
+.DS_Store
 www/app/tmp/

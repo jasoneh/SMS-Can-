@@ -106,6 +106,7 @@ section#mainsection{
 
 
 
+
 #header{
     background: #303030;
 }
@@ -131,16 +132,8 @@ ul{
     list-style-type: none;
 }
 
-/* Header objects */
-
+/*
 #top-row{
-    /*
-    margin:  0;
-    padding-left:  18px;
-    parring-right: 18px;
-    background: #cccccc;
-    color: #fff;
-    */
     height: 121px;
     margin: 0 auto;
     position: relative;
@@ -153,6 +146,7 @@ ul{
 .header-menu{
     border-bottom: 4px solid #eee;
 }
+*/
 /*
 .navmenu ul {
     margin: 0;
@@ -215,7 +209,7 @@ table{
 #search-input{
     font-size: 14px;
     color: #333;
-}
+}   
 #search-submit{
 
 }
@@ -225,6 +219,28 @@ table{
 }
 
 /* Product listing */
+
+ul.product-list{
+
+}
+    ul.product-list li.item{
+        border: 1px solid #eee;
+        margin-right: 48px;
+        margin-bottom: 12px;
+    }
+
+    ul.product-list li.item .item-thumbnail{
+        border: 1px solid #eee;
+        margin-right: 16px;
+        float: left;
+    }
+    ul.product-list li.item a.item-link{
+    }
+    ul.product-list li.item .item-description{
+    }
+    ul.product-list li.item .item-purchase{
+        float: right;
+    }
 
 .product-item{
     padding: 8px;

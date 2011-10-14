@@ -5,24 +5,25 @@
  */
 ?>
 
-<ul>
+<h4>Categories</h4>
+<!--<ul>-->
 <?php
-/*
+// retrieve categories returned from method 'all()' in 'categories_controller.php'
 $categories = $this->requestAction('categories/all');
-    print_r($categories);
-foreach($categories as $category):
+foreach($categories as $key => $value):
 ?>
-	<li><?php echo $html->link(__($category['Category']['name'], true),
-			array('controller' => 'products', 'action' => 'category', $category['Category']['id'])
+	<p><?php echo $html->link(__($value, true),
+			array('controller' => 'products', 'action' => 'category', $key)
 		);
 		?>
-	</li>
+	</p>
 <?php
 endforeach;
-*/
+
 ?>
 
-categories
+<!--categories
     categories
     categories
 </ul>
+-->

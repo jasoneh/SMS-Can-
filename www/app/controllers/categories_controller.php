@@ -19,9 +19,12 @@ class CategoriesController extends AppController {
 	);
     function all(){
         $categories = $this->Category->find('list', array(
-            'fields' => array('Category.id', 'Category.description')
+            'fields' => array('Category.id', 'Category.description'),
+            'order' => array('Category.description')
         ));
 		$this->set('categories', $categories);
+        return $categories;
+        
     }
 }
 ?>
