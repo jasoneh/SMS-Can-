@@ -17,7 +17,7 @@
 
                     <div class="item-purchase">
                         <p>Price: 3030</p>
-                        <a href="#">Add to cart</a>
+                        <a href="#" class="awesome green">Add to cart</a>
                     </div>
                     <div style="clear: both"></div>
                 

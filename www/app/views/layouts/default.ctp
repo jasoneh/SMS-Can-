@@ -12,6 +12,7 @@
     
     echo $html->css('style');
     echo $html->css('formalize');
+    echo $html->css('buttons');
 ?>
 
 </head>
@@ -24,10 +25,10 @@
                 <li class="nav-home"><a href="/"><span class="olive">SMS</span><span class="grey">Canada</span></a>
                 </li>
                 <li class="nav-last"><span class="olive">Login</span> </li>
-                <li><a href="#">products</a></li>
-                <li><a href="#">parts charts</a></li>
-                <li><a href="#">dealers</a></li>
                 <li><a href="#">contact</a></li>
+                <li><a href="#">dealers</a></li>
+                <li><a href="#">parts charts</a></li>
+                <li><a href="#">products</a></li>
             </ul>
         </div>
     </nav>
@@ -49,6 +50,9 @@
         <div class="grid_5">
             <p>
                 SMSCanada -header 380
+            </p>
+            <p>
+                Cart
             </p>
         </div>
         <!-- end .grid_5 -->
