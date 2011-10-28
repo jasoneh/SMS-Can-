@@ -25,9 +25,9 @@ class ProductsController extends AppController {
 	/* List products, paginate them and order by name */
 	var $paginate = array(
 		'field' => array('Product.id', 'Product.name'),
-		'limit' => 50,
+		'limit' => 25,
 		'order' => array(
-			'Product.name' => 'asc'
+			'Product.created' => 'desc'
 		)
 	);
 	
@@ -134,8 +134,7 @@ class ProductsController extends AppController {
         if(!empty($this->data)){
             if($this->Product->save($this->data)){
                  //Set a session flash message and redirect.
-                $this->Session->setFlash("Product Saved!");
-                $this->redirect('/admin/products/');   // TODO: redirect to edit page of this product
+                $this->Session->setFlash("Product added successfully!");
             }
         }else{
             $categories = $this->Category->find('list');
@@ -163,5 +162,41 @@ class ProductsController extends AppController {
 				'action' => 'index'
 			));
 		} // endif*/
+    }
+
+    function admin_edit($id=null){
+        if(empty($this->data)){
+            $this->data = $this->Product->findById($id);
+        }else{
+            if(isset($this->Product->data)){
+                $this->Product->set($this->data);
+                if($this->Product->validates()){
+                    if($this->Product->save()){
+                        $this->Session->setFlash('Product saved successfully');
+                    }
+                }else{
+                    $errors = $this->Product->invalidFields();
+                    $this->Session->setFlash(implode(',', $errors));
+                }
+
+                // redirect to the product index page
+                $this->redirect(array(
+                    'controller' => 'products',
+                    'action' => 'edit',
+                    $id
+                ));
+            } // endif
+        }
+    }
+
+    function admin_delete($id = null){
+        $product = $this->Product->findById($id);
+        if($this->Product->delete($id)){
+            $this->Session->setFlash('Product ' .$id. ' deleted successfully');
+            $this->redirect(array(
+                  'controller' => 'products',
+                  'action' => 'index',
+                            ));
+        }
     }
 }

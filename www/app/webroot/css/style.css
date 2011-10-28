@@ -325,11 +325,42 @@ ul.listings{
 
 /* admin */
 
-.form label{
-    
+#flashMessage{
+    padding:  8px;
+    font-size: 18px;
+    color: #fff;
+    text-shadow: #303030 1px 1px 1px;
+    background: #aad64f;
+    border: 1px solid #6b8e23;
 }
-.form input{
-    
+
+#flashMessage.error{
+    background: #ff6666;
+    padding:  8px;
+    font-size: 18px;
+    text-shadow: #303030 1px 1px 1px;
+    border: 1px solid #cc0000;
+}
+.input{
+    overflow: hidden;
+    width: 550px;
+}
+.input label{
+    float: left;
+    margin-top: 12px;
+    height: 28px;
+    width: 250px;
+}
+.input input, .input textarea, .input select{
+    clear: left;
+    float: left;
+}
+
+.form label{
+
+}
+.form input, select{
+
 }
 .form{
 

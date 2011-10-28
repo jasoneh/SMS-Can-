@@ -6,7 +6,13 @@
 
 
 		echo $form->input('category_id', $categories);
-		echo $form->select('manufacturer_id', $manufacturers);
+        
+        #echo $form->inputs(array('manufacturer_id' => array('label', 'manufacturers')));
+        echo $form->input('manufacturer_id', array(
+                 'type' => 'select',
+                 'label' => 'Manufacturer',
+                )
+        );
 		echo $form->input('parts_number');
 		echo $form->input('name');
 		echo $form->input('name_french');

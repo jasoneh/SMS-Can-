@@ -17,7 +17,13 @@
 
                     <div class="item-purchase">
                         <p>Price: 3030</p>
-                        <a href="#" class="awesome green">Add to cart</a>
+                        <!--<a href="" class="awesome green">Add to cart</a>-->
+                        <? echo $html->link(
+                                'Add to cart',
+                                array('controller' => 'cart', 'action' => 'add', $value['Product']['id']),
+                                array('class' => 'awesome green')
+                            )
+                        ?>
                     </div>
                     <div style="clear: both"></div>
                 

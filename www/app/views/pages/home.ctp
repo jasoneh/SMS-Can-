@@ -1,11 +1,13 @@
-
-
 <?php
-
     $width = 48;
     $height = 48;
     $nof_cols = 3;
     $nof_rows = 4;
+?>
+
+
+<?
+    echo $this->renderElement('featured_products');
 ?>
 
 <h1>Featured products</h1>

@@ -28,7 +28,7 @@
                 <li><a href="#">contact</a></li>
                 <li><a href="#">dealers</a></li>
                 <li><a href="#">parts charts</a></li>
-                <li><a href="#">products</a></li>
+                <li><a href="/smscanada/index.php/products">Products</a></li>
             </ul>
         </div>
     </nav>

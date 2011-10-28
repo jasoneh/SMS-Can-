@@ -11,7 +11,10 @@ div.wrapper { width: 940px; margin: 0 auto; padding: 0 30px 36px; position: rela
 	background: #222 url(/images/alert-overlay.png) repeat-x;
 	display: inline-block;
 	padding: 5px 10px 6px;
-	color: #fff;
+
+    color: #fff;
+    text-shadow: #6b8e23 1px 1px 1px;
+    
 	text-decoration: none;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
