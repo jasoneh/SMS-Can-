@@ -1,5 +1,7 @@
 <?php
-/* Dealers Test cases generated on: 2011-08-22 21:08:40 : 1314039760*/
+
+Warning: date(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'Europe/Berlin' for 'CEST/2.0/DST' instead in /Users/mathias/Sites/SMS-Can-/www/cake/console/templates/default/classes/test.ctp on line 22
+/* Dealers Test cases generated on: 2011-10-29 00:10:27 : 1319840727*/
 App::import('Controller', 'Dealers');
 
 class TestDealersController extends DealersController {
@@ -21,6 +23,46 @@ class DealersControllerTestCase extends CakeTestCase {
 	function endTest() {
 		unset($this->Dealers);
 		ClassRegistry::flush();
+	}
+
+	function testIndex() {
+
+	}
+
+	function testView() {
+
+	}
+
+	function testAdd() {
+
+	}
+
+	function testEdit() {
+
+	}
+
+	function testDelete() {
+
+	}
+
+	function testAdminIndex() {
+
+	}
+
+	function testAdminView() {
+
+	}
+
+	function testAdminAdd() {
+
+	}
+
+	function testAdminEdit() {
+
+	}
+
+	function testAdminDelete() {
+
 	}
 
 }

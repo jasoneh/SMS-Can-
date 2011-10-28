@@ -70,5 +70,9 @@ class UsersController extends AppController {
     function admin_login(){
         
     }
-    
+
+
+    function admin_add(){
+
+    }
 }

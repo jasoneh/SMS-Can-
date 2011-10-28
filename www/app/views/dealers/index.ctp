@@ -10,15 +10,16 @@ echo $paginator->counter(array(
 <tr>
 	<th><?php echo $paginator->sort('id');?></th>
 	<th><?php echo $paginator->sort('user_id');?></th>
+	<th><?php echo $paginator->sort('type_id');?></th>
 	<th><?php echo $paginator->sort('organisation');?></th>
 	<th><?php echo $paginator->sort('firstname');?></th>
 	<th><?php echo $paginator->sort('lastname');?></th>
 	<th><?php echo $paginator->sort('email');?></th>
 	<th><?php echo $paginator->sort('phone');?></th>
 	<th><?php echo $paginator->sort('address');?></th>
-	<th><?php echo $paginator->sort('zip');?></th>
+	<th><?php echo $paginator->sort('postal');?></th>
 	<th><?php echo $paginator->sort('city');?></th>
-	<th><?php echo $paginator->sort('state');?></th>
+	<th><?php echo $paginator->sort('province');?></th>
 	<th><?php echo $paginator->sort('country');?></th>
 	<th><?php echo $paginator->sort('url');?></th>
 	<th><?php echo $paginator->sort('created');?></th>
@@ -42,6 +43,9 @@ foreach ($dealers as $dealer):
 			<?php echo $html->link($dealer['User']['id'], array('controller' => 'users', 'action' => 'view', $dealer['User']['id'])); ?>
 		</td>
 		<td>
+			<?php echo $dealer['Dealer']['type_id']; ?>
+		</td>
+		<td>
 			<?php echo $dealer['Dealer']['organisation']; ?>
 		</td>
 		<td>
@@ -60,13 +64,13 @@ foreach ($dealers as $dealer):
 			<?php echo $dealer['Dealer']['address']; ?>
 		</td>
 		<td>
-			<?php echo $dealer['Dealer']['zip']; ?>
+			<?php echo $dealer['Dealer']['postal']; ?>
 		</td>
 		<td>
 			<?php echo $dealer['Dealer']['city']; ?>
 		</td>
 		<td>
-			<?php echo $dealer['Dealer']['state']; ?>
+			<?php echo $dealer['Dealer']['province']; ?>
 		</td>
 		<td>
 			<?php echo $dealer['Dealer']['country']; ?>

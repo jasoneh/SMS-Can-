@@ -5,15 +5,16 @@
 	<?php
 		echo $form->input('id');
 		echo $form->input('user_id');
+		echo $form->input('type_id');
 		echo $form->input('organisation');
 		echo $form->input('firstname');
 		echo $form->input('lastname');
 		echo $form->input('email');
 		echo $form->input('phone');
 		echo $form->input('address');
-		echo $form->input('zip');
+		echo $form->input('postal');
 		echo $form->input('city');
-		echo $form->input('state');
+		echo $form->input('province');
 		echo $form->input('country');
 		echo $form->input('url');
 		echo $form->input('active');

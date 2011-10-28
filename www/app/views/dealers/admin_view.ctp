@@ -11,6 +11,11 @@
 			<?php echo $html->link($dealer['User']['id'], array('controller' => 'users', 'action' => 'view', $dealer['User']['id'])); ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Type Id'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $dealer['Dealer']['type_id']; ?>
+			&nbsp;
+		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Organisation'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $dealer['Dealer']['organisation']; ?>
@@ -41,9 +46,9 @@
 			<?php echo $dealer['Dealer']['address']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Zip'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Postal'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $dealer['Dealer']['zip']; ?>
+			<?php echo $dealer['Dealer']['postal']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('City'); ?></dt>
@@ -51,9 +56,9 @@
 			<?php echo $dealer['Dealer']['city']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('State'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Province'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $dealer['Dealer']['state']; ?>
+			<?php echo $dealer['Dealer']['province']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Country'); ?></dt>

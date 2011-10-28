@@ -34,7 +34,16 @@
 	<?php
 		echo $html->meta('icon');
 
-		echo $html->css('cake.generic');
+		#echo $html->css('cake.generic');
+        echo $html->css('admin');
+        echo $html->css('960/reset');
+        echo $html->css('960/text');
+        echo $html->css('960/960');
+        #echo $html->css('960/demo');
+
+        echo $html->css('style');
+        echo $html->css('formalize');
+        echo $html->css('buttons');
 
 		echo $scripts_for_layout;
 	?>
