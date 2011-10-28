@@ -13,7 +13,7 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Type Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $dealer['Dealer']['type_id']; ?>
+			<?php echo $dealer['Dealer']['dealer_type_id']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Organisation'); ?></dt>

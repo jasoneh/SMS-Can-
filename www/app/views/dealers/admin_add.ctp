@@ -4,7 +4,7 @@
  		<legend><?php __('Add Dealer');?></legend>
 	<?php
 		echo $form->input('user_id');
-		echo $form->input('type_id');
+		echo $form->input('dealer_type_id');
 		echo $form->input('organisation');
 		echo $form->input('firstname');
 		echo $form->input('lastname');

@@ -10,7 +10,7 @@ echo $paginator->counter(array(
 <tr>
 	<th><?php echo $paginator->sort('id');?></th>
 	<th><?php echo $paginator->sort('user_id');?></th>
-	<th><?php echo $paginator->sort('type_id');?></th>
+	<th><?php echo $paginator->sort('dealer_type_id');?></th>
 	<th><?php echo $paginator->sort('organisation');?></th>
 	<th><?php echo $paginator->sort('firstname');?></th>
 	<th><?php echo $paginator->sort('lastname');?></th>
@@ -43,7 +43,7 @@ foreach ($dealers as $dealer):
 			<?php echo $html->link($dealer['User']['id'], array('controller' => 'users', 'action' => 'view', $dealer['User']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $dealer['Dealer']['type_id']; ?>
+			<?php echo $dealer['Dealer']['dealer_type_id']; ?>
 		</td>
 		<td>
 			<?php echo $dealer['Dealer']['organisation']; ?>
