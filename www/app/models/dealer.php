@@ -19,7 +19,15 @@ class Dealer extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		)
+		),
+        'DealerType' => array(
+            'className' => 'DealerType',
+            'foreignKey' => 'dealer_type_id',
+            'conditions' => '',
+            'fields' => '',
+			'order' => ''
+        )
 	);
+
 }
 ?>
