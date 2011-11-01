@@ -8,7 +8,7 @@
     echo $this->Html->css('960/text');
     echo $this->Html->css('960/960');
     echo $this->Html->css('960/demo');
-    
+
     echo $this->Html->css('style');
     echo $this->Html->css('formalize');
     echo $this->Html->css('buttons');
@@ -34,7 +34,7 @@
 </header>
 
 <section id="mainsection">
-    
+
     <div class="container_12 main box_shadow">
         <div class="grid_12">
             <p>
@@ -66,7 +66,7 @@
         <!-- end .grid_3 -->
         <div class="grid_9">
             <p>
-                <?php #$this->session->flash(); ?>
+                <?php #$session->flash(); ?>
                 700 - main content
                 <div id="content">
                     <?php echo $content_for_layout; ?>
