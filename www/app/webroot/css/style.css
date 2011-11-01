@@ -1,0 +1,368 @@
+/*
+    SMS Canada
+    Front page layout
+    @author Mathias Tervo - 2011
+*/
+body {
+    font-family: "Arial","Helvetica",sans-serif;
+    font-size: 12px;
+    text-align: left;
+    margin: 0;
+    padding:  0;
+}
+.container {
+    background-color: #fff;
+    border: 1px solid #303030;
+}
+
+/* Typography */
+
+h2 { color: #39f; }
+
+p{
+    font-size: 12px;
+}
+    p.border{
+        border: 1px solid #666;
+        overflow: hidden;
+        padding: 10px 10px;
+    }
+
+
+/* Containers and page elements */
+header{
+    display: block;}
+    nav{
+        /*background: #2B2B2B;*/
+        /*background:  #DEEFFE;
+        border: 4px solid #ACBFD1;*/
+
+        background-color: #3F3F3F;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#3f3f3f), to(#2b2b2b));
+        background-image: -webkit-linear-gradient(top, #3f3f3f, #2b2b2b);
+        background-image: -moz-linear-gradient(top, #3f3f3f, #2b2b2b);
+        background-image: -ms-linear-gradient(top, #3f3f3f, #2b2b2b);
+        background-image: -o-linear-gradient(top, #3f3f3f, #2b2b2b);
+        background-image: linear-gradient(top, #3f3f3f, #2b2b2b);
+
+        padding: 15px 0;    }
+
+    nav ul{
+        margin: 0;
+        padding: 0;
+    }
+    nav li{
+        float: right;
+        margin-right: 16px;
+        /*font-size: 18px;*/
+    }
+    nav a{
+        color: #fff;
+        display: inline-block;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: bold;
+        /*margin: 0 0 0 20px;
+        padding: 11px 0 2px;*/
+    }
+    nav .nav-home{
+        float: left;
+    }
+    nav .nav-home a{
+        font-size: 24px;
+    }
+
+    nav .nav-last{
+        border-left: 1px dotted #747474;
+        color: #5C5C5C;
+        margin-left: 20px;
+        margin-right: 20px;
+        /*padding: 0 0 0 20px;*/
+    }
+
+.olive{
+    color: #6b8e23;
+}
+.grey{
+    color: #d3d3d3;
+}
+
+
+section#mainsection{
+    /*background: #ccd;*/
+    background: #f7f7f7 url('/smscanada/app/webroot/img/backgroundpattern.png');
+
+}
+.main{
+    background: #fff;
+}
+
+.box_shadow{
+    
+    box-shadow:         0px 2px 8px rgba(0, 0, 0, 0.80);
+    -moz-box-shadow:    0px 2px 8px rgba(0, 0, 0, 0.80);
+    -webkit-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.80);
+}
+
+
+
+
+#header{
+    background: #303030;
+}
+    #header h1{
+        overflow: hidden;
+        float: left;
+    }
+
+.footer{
+    border-top: 1px solid #39f;
+    padding-top: 12px;
+}
+
+.sidebar-left{
+    border:  1px solid #6495ed;
+}
+#content{
+    background: #fff;
+    border:  1px solid #6495ed;
+}
+
+
+ul{
+    list-style-type: none;
+}
+
+/*
+#top-row{
+    height: 121px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 99;
+}
+#header-top{
+
+    padding:  8px;
+}
+.header-menu{
+    border-bottom: 4px solid #eee;
+}
+*/
+/*
+.navmenu ul {
+    margin: 0;
+    padding: 8px;
+	list-style-type: none;
+    list-style-image: none;
+}
+
+    .navmenu li {
+        display: inline;}
+
+        .navmenu ul li a {
+            font-size: 18px;
+            font-weight: bold;
+            text-shadow: 0 1px 0 #EEEEEC;
+            color: #c60;
+            margin-right: 24px;
+            text-decoration: none;
+            border-bottom:  2px solid #c60;
+        }
+        .navmenu ul li a:hover {
+            color: #39f;
+        }
+
+.navleft{
+    float: left;
+}
+.navright{
+    float: right;
+}
+*/
+
+/* Tables */
+table{
+    border-collapse: collapse;
+
+}
+    tr{
+        border-bottom:  1px solid #303030;
+    }
+    th, td{
+        padding: 8px;
+    }
+    th{
+        background: #39f;
+        color: #fff;
+        text-shadow: 0 1px 0 #303030;
+    }
+    td{
+        border-bottom: 1px solid #333;
+    }
+
+    .row_1{
+        background: #e4f8ff;
+    }
+    .row_2{
+        background: #fff;
+    }
+
+#search-input{
+    font-size: 14px;
+    color: #333;
+}   
+#search-submit{
+
+}
+
+#product-detail-container{
+    border: 1px solid #F5F5F1;
+}
+
+/* Product listing */
+
+ul.product-list{
+
+}
+    ul.product-list li.item{
+        border: 1px solid #eee;
+        margin-right: 48px;
+        margin-bottom: 12px;
+    }
+
+    ul.product-list li.item .item-thumbnail{
+        border: 1px solid #eee;
+        margin-right: 16px;
+        float: left;
+    }
+    ul.product-list li.item a.item-link{
+    }
+    ul.product-list li.item .item-description{
+    }
+    ul.product-list li.item .item-purchase{
+        float: right;
+    }
+
+.product-item{
+    padding: 8px;
+    background: white;
+    border: 1px solid #ECECEC;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    position: relative;
+    float: left;
+}
+.product-item-small{
+    width: 206px;
+
+}
+.product-image-small{
+    width: 132px;
+    height: 132px;
+}
+ul.listings{
+    float: left;
+    clear: left;
+    margin-right: -10px;
+}
+.listings li{
+    float: left;
+}
+.product-title{
+    color: #666;
+    line-height: 15px;
+    margin-bottom: 0;
+    margin-top: 5px;
+    height: 15px;
+    line-height: 15px;
+    overflow: hidden;
+    color: #666;
+}
+.product-manufacturer{
+    color: #B6B6B6;
+    height: 14px;
+    margin-bottom: 0;
+    line-height: 14px;
+}
+.product-price{
+    position: absolute;
+    bottom: 5px;
+    right: 6px;
+    color: #78C042;
+    margin-bottom: 0;
+    float: right;
+    line-height: 14px;
+    margin-top: -14px;
+}
+
+/* Product detail */
+.product-details{
+    float: left;
+}
+.product-add-to-cart{
+    float: right;
+    padding:  4px;
+    background: #58da58;
+    border:  1px solid #33dd33;
+    border-radius: 4px;
+    box-shadow: 4px 4px 10px #888;
+}
+.product-add-to-cart a{
+    color: #fff;
+    text-decoration: none;
+}
+
+
+#sidebar-right{
+    margin-top: 13px;
+    margin-right: 30px;
+
+    padding-left: 8px;
+    padding-right: 8px;
+
+    border-left: 1px solid #F5F5F1;
+}
+
+
+/* admin */
+
+#flashMessage{
+    padding:  8px;
+    font-size: 18px;
+    color: #fff;
+    text-shadow: #303030 1px 1px 1px;
+    background: #aad64f;
+    border: 1px solid #6b8e23;
+}
+
+#flashMessage.error{
+    background: #ff6666;
+    padding:  8px;
+    font-size: 18px;
+    text-shadow: #303030 1px 1px 1px;
+    border: 1px solid #cc0000;
+}
+.input{
+    overflow: hidden;
+    width: 550px;
+}
+.input label{
+    float: left;
+    margin-top: 12px;
+    height: 28px;
+    width: 250px;
+}
+.input input, .input textarea, .input select{
+    clear: left;
+    float: left;
+}
+
+.form label{
+
+}
+.form input, select{
+
+}
+.form{
+
+}
