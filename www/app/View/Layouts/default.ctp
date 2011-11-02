@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>SMS Canada &mdash; </title>
+<title>SMS Canada &mdash;<? echo $title_for_layout ?> </title>
 <?php
     echo $this->Html->css('960/reset');
     echo $this->Html->css('960/text');
@@ -69,7 +69,7 @@
                 <?php #$session->flash(); ?>
                 700 - main content
                 <div id="content">
-                    <?php echo $content_for_layout; ?>
+                    <? echo $content_for_layout; ?>
                 </div>
             </p>
         </div>

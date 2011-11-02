@@ -58,6 +58,7 @@ class ProductsController extends AppController {
                                     array('order' => 'Product.name')
         );
 		$this->set(compact('products', 'category_name'));
+        #$this->render();
 	}
 
 

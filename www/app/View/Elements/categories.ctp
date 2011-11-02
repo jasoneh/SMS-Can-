@@ -10,9 +10,10 @@
 <?php
 // retrieve categories returned from method 'all()' in 'categories_controller.php'
 $categories = $this->requestAction('categories/all');
+
 foreach($categories as $key => $value):
 ?>
-	<p><?php echo $html->link(__($value, true),
+	<p><?php echo $this->Html->link(__($value, true),
 			array('controller' => 'products', 'action' => 'category', $key)
 		);
 		?>
