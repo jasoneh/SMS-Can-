@@ -1,3 +1,7 @@
+<?
+    $next_language = 'french';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +28,9 @@
                 <li class="nav-home"><a href="/"><span class="olive">SMS</span><span class="grey">Canada</span></a>
                 </li>
                 <li class="nav-last"><span class="olive">Login</span> </li>
+                <li><? echo $this->Html->link($next_language, '/pages/togglelanguage'); ?></li>
+                
+
                 <li><a href="#">contact</a></li>
                 <li><a href="#">dealers</a></li>
                 <li><a href="#">parts charts</a></li>

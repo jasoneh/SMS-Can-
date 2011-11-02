@@ -177,6 +177,10 @@
 	));
 
 /**
+ * Localization, default language
+ */
+    Configure::write('Config.language', 'eng');
+/**
  * The level of CakePHP security.
  */
 	Configure::write('Security.level', 'medium');

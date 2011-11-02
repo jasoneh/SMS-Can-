@@ -6,57 +6,53 @@
 		echo $this->renderElement('categories');
 	?>
 	*/
+
+    if($this->Session == 'french'){
+        $description = $product['Product']['description_fr'];
+    }else{
+        $description = $product['Product']['description'];
+    }
+
+    // TODO: Do dealer type checkup in user model
+    $user = 'house-dealer'; # FIXME: temporary fix
+    $price = 'must fix price setting by linking correctly in Products/view.ctp';
+    if($user == 'house-dealer'){
+        #$price = $product['Product']['price_house'];
+    }else{
+        #$price = $product['Product']['price_wholesale'];
+    }
 ?>
 </div>
 
 <div id="main">
 	<div class="products view">
-	<h2><?php  __('Product');?></h2>
+	    <h2><?php  __('Product');?></h2>
 
-	<img src="/smscanada/app/webroot/media/products/dummy_product.jpg" />
-<?php
+	    <!--<img src="localhost:8888/smscanada/media/products/dummy_product.jpg" />-->
+        <? echo $this->Html->image('dummy_product.jpg'); ?>
 
-    echo "<pre>";
-        print_r($product);
-    echo "</pre>";
-	echo "<h1>" . $product['Product']['name'] . "</h1>";
-	/*if($session == 'french'){
-		echo "<h4>" . $product['Product']['description_fr'] . "</h4>";
-	}else{
-		echo "<h4>" . $product['Product']['description'] . "</h4>";
-	}*/
-?>
-	<p><a href="dumy_url=<?php echo $product['Product']['category_id']; ?>">List products of this category</a></p>
-	<p>
-	<?php echo $this->Html->link("List products of this category",
-		array('controller' => 'products', 'action' => 'category', $product['Category']['id'])); ?>
-	</p>
+        <h1><? echo $product['Product']['name'] ?> </h1>
+        <p><a href="dummy_url=<?php echo $product['Product']['category_id']; ?>">List products of this category</a></p>
+        <p>
+        <?php echo $this->Html->link("List products of this category",
+            array('controller' => 'products', 'action' => 'category', $product['Category']['id'])); ?>
+        </p>
 	
-<?php
-	// TODO: Do dealer type checkup in user model
-	$user = 'house-dealer'; # FIXME: temporary fix
-    $price = 'must fix price setting by linking correctly in Products/view.ctp';
-	if($user == 'house-dealer'){
-		#$price = $product['Product']['price_house'];
-	}else{
-		#$price = $product['Product']['price_wholesale'];
-	}
-?>
-	<p>Price: <?php echo $price; ?></p>
+	    <p>Price: <?php echo $price; ?></p>
 	
-<?php 
-	// Loop over all images belonging to this Product
-	foreach ($product['Image'] as $image){
-		echo $image['filename'] . "<br/>";		
-		echo $image['caption'] . "<br/>";
-		echo "<hr/>";
-	}
+        <?php
+            // Loop over all images belonging to this Product
+            foreach ($product['Image'] as $image){
+                echo $image['filename'] . "<br/>";
+                echo $image['caption'] . "<br/>";
+                echo "<hr/>";
+            }
 
-?>
+        ?>
 
 
-<hr/>
-<p>Below is for development only</p>
+    <hr/>
+    <p>Below is for development only</p>
 
 
 <?php echo $this->Html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?>
