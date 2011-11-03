@@ -7,7 +7,9 @@
 <head>
 <meta charset="utf-8" />
 <title>SMS Canada &mdash;<? echo $title_for_layout ?> </title>
-<?php
+<?
+    echo $this->Html->script('jquery.min');
+    echo $this->Html->script('jquery.formalize');
     echo $this->Html->css('960/reset');
     echo $this->Html->css('960/text');
     echo $this->Html->css('960/960');
@@ -17,6 +19,7 @@
     echo $this->Html->css('formalize');
     echo $this->Html->css('buttons');
 ?>
+
 
 </head>
 <body>

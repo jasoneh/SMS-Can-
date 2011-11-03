@@ -95,6 +95,19 @@ class UsersController extends AppController {
     public function loggedin(){
         return $this->Auth->user('username');
     }
+
+    /*
+     *  Redirect to the ordinary login page
+     */
+    public function admin_login(){
+        $this->redirect('/users/login');
+    }
+    /*
+     * Redirect to ordinary logout
+     */
+    public function admin_logout(){
+        $this->logout();
+    }
 }
 
 
@@ -128,7 +141,7 @@ class OldUsersController extends AppController {
         }
 	}
 	function logout(){
-		#$this->redirect($this->Auth->logout());
+		$this->redirect($this->Auth->logout());
 	}
 	
 	function register_old() {
