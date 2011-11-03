@@ -215,6 +215,8 @@ table{
 
 }
 
+/* Listings */
+
 #product-detail-container{
     border: 1px solid #F5F5F1;
 }
@@ -228,6 +230,7 @@ ul.product-list{
         border: 1px solid #eee;
         margin-right: 48px;
         margin-bottom: 12px;
+        overflow: hidden;
     }
 
     ul.product-list li.item .item-thumbnail{

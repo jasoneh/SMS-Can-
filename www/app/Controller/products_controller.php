@@ -13,16 +13,16 @@ class ProductsController extends AppController {
 	var $name = 'Products';
 
 	var $helpers = array('Html', 'Session', );
-
+    var $components = array('Auth',);
     var $uses = array('Product', 'Category', 'Manufacturer');
 	var $scaffold;
 
 	// Allow following actions to non logged in users
     function beforeFilter() {
-        #$this->Auth->allow('*');
+        $this->Auth->allow(array('index', 'view', ));
     }
 
-	/* List products, paginate them and order by name */
+	/* List products, paginate them and order by creation */
 	var $paginate = array(
 		'field' => array('Product.id', 'Product.name'),
 		'limit' => 25,
@@ -33,7 +33,8 @@ class ProductsController extends AppController {
 	
 	/* Default page, paginates the products */
 	function index(){
-		$data = $this->paginate('Product');
+        echo "hej";
+		$data = $this->Paginate('Product');
 		$this->set('data', $data);
 	}
 	

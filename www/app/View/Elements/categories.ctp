@@ -6,25 +6,24 @@
 ?>
 
 <h4>Categories</h4>
-<!--<ul>-->
+<ul>
 <?php
 // retrieve categories returned from method 'all()' in 'categories_controller.php'
 $categories = $this->requestAction('categories/all');
-
 foreach($categories as $key => $value):
 ?>
-	<p><?php echo $this->Html->link(__($value, true),
+	<li><?php echo $this->Html->link(__($value, true),
 			array('controller' => 'products', 'action' => 'category', $key)
 		);
 		?>
-	</p>
+	</li>
 <?php
 endforeach;
 
 ?>
-
+</ul>
 <!--categories
     categories
     categories
-</ul>
+
 -->

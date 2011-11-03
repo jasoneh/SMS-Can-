@@ -21,16 +21,14 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-/**
- * Localization urls
- */
-    Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
-
     Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
-
+    Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+    /*
+     * Localization URLs
+     
     Router::connect('/:language/:controller/:action/*',
                     array(),
-                    array('language' => '[a-z]{3}'));
+                    array('language' => '[a-z]{3}'));*/
 
 /**
  * Here, we are connecting '/' (base path) to controller called 'Pages',

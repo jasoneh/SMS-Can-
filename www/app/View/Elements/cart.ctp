@@ -9,12 +9,13 @@
 <ul>
 <?php
 
-$items_in_cart = $this->requestAction('carts/list');
-foreach($items_in_cart as $key => $value):
+$items_in_cart = $this->requestAction('carts/all');
+echo "items". $items_in_cart;
+/*foreach($items_in_cart as $key => $value):
 
     echo $key. ' > ' . $value;
 
-endforeach;
+endforeach;*/
 
 ?>
 </ul>

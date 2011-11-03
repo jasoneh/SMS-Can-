@@ -66,6 +66,7 @@
         <div class="clear"></div>
         <div class="grid_3">
             <p>
+                <?php echo $this->element('cart'); ?>
                 220 sidebar categories
                 <?php echo $this->element('categories'); ?>
           </p>

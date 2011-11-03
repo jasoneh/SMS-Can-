@@ -12,7 +12,7 @@ class CategoriesController extends AppController{
      * @return list of all categories
      */
     function all(){
-        return $this->Category->find('list');
+        return $this->Category->find('list', array('fields' => 'Category.description', 'Category.id'));
     }
 
 }

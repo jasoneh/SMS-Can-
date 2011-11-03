@@ -1,12 +1,16 @@
 <?php
 class AppController extends Controller {
 
-    var $components = array('Auth', 'Session');
+    public $components = array(
+        'Session',
+        'Auth' => array(
+            'loginRedirect' => array('controller' => 'posts', 'action' => 'index'),
+            'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home')
+        )
+    );
 
     function beforeFilter(){
-        echo "before filter";
-		$this->_checkAdmin();
-
+        $this->_checkAdmin();
         $this->_setLanguage();
 	}
 
@@ -18,6 +22,7 @@ class AppController extends Controller {
     /**
      * Determine the language from the URL as specified in app/Config/core.php
      * Configure::write('Config.language', 'eng');
+     * TODO: Refactor this , make it good
      * @return void
      */
     function _setLanguage(){
