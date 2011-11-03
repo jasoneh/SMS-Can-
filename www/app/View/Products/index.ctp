@@ -3,6 +3,8 @@
 	<h2><?php __('Featured products');?></h2>
 
 	<ul class="product-list">
+
+
 	<?php foreach ($data as $key => $value): ?>
 		<li class="item">
 			<div class="item-link">
@@ -31,11 +33,12 @@
                     ?>
                     </fieldset>
                 <?php echo $this->Form->end(__('Buy'));?>
-                
+
             </div>
 
 		</li>
 	<?php endforeach; ?>
+        
 	</ul>
     <?php
         echo $this->Paginator->counter(array(

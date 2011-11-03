@@ -23,18 +23,26 @@ class ProductsController extends AppController {
     }
 
 	/* List products, paginate them and order by creation */
-	var $paginate = array(
-		'field' => array('Product.id', 'Product.name'),
-		'limit' => 25,
+	/*var $paginate = array(
+		'field' => array('Product.id'),
+		'limit' => 15,
+        'page' => 1,
 		'order' => array(
 			'Product.created' => 'desc'
 		)
-	);
-	
+	);*/
+
+    public $paginate = array(
+        'fields' => array('DISTINCT Product.id', 'Product.name'),
+        'limit' => 25,
+        'order' => array(
+            'Product.created' => 'desc'
+        )
+    );
 	/* Default page, paginates the products */
 	function index(){
-		$data = $this->Paginate('Product');
-		$this->set('data', $data);
+        $data = $this->paginate('Product');
+        $this->set('data', $data);
 	}
 	
 	/* Show product details */
