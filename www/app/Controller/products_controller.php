@@ -33,7 +33,6 @@ class ProductsController extends AppController {
 	
 	/* Default page, paginates the products */
 	function index(){
-        echo "hej";
 		$data = $this->Paginate('Product');
 		$this->set('data', $data);
 	}
@@ -64,59 +63,6 @@ class ProductsController extends AppController {
 
 
     
-	/*var $uses = array();*/
-/*
-	function display() {
-		$path = func_get_args();
-
-		$count = count($path);
-		if (!$count) {
-			$this->redirect('/');
-		}
-		$page = $subpage = $title = null;
-
-		if (!empty($path[0])) {
-			$page = $path[0];
-		}
-		if (!empty($path[1])) {
-			$subpage = $path[1];
-		}
-		if (!empty($path[$count - 1])) {
-			$title = Inflector::humanize($path[$count - 1]);
-		}
-		$this->set(compact('page', 'subpage', 'title'));
-		$this->render(join('/', $path));
-	}
-	*/
-/*	
-	function index(){
-		
-	}
-*/
-	/*
-	function add(){
-		if(isset($this->Product->data)){
-			$this->Product->set($this->data);
-			if($this->Product->validates()){
-				if($this->Product->save()){
-					$this->Session->setFlash('Product saved successfully');
-				}
-			}else{
-				$errors = $this->Product->invalidFields();
-				$this->Session->setFlash(implode(',', $errors));
-			}
-
-			// redirect to the product index page
-			$this->redirect(array(
-				'controller' => 'products', 
-				'action' => 'index'
-			));			
-		} // endif
-	}
-	*/
-
-
-
     /**
      * Admin controllers
      *

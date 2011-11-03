@@ -3,10 +3,13 @@ class DealersController extends AppController {
 
 	var $name = 'Dealers';
 	var $helpers = array('Html', 'Form');
-
+    var $uses = array('Carts');
+    /*
+     * Dealer dashboard
+     */
 	function index() {
-		$this->Dealer->recursive = 0;
-		$this->set('dealers', $this->paginate());
+        $cart_contents = $this->Carts->findByUserId('list');
+        $this->set(compact('cart_contents'));
 	}
 
 	function view($id = null) {

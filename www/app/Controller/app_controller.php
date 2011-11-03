@@ -10,10 +10,15 @@ class AppController extends Controller {
     );
 
     function beforeFilter(){
+        echo "beforefilter";
+        $this->_checkUser();
         $this->_checkAdmin();
         $this->_setLanguage();
 	}
 
+    function _checkUser(){
+        echo $this->Auth->user('username');
+    }
     function _checkAdmin(){
         if(isset($this->params['prefix']) && $this->params['prefix'] == 'admin'){
 			$this->layout = 'admin';

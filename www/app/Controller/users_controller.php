@@ -16,7 +16,7 @@ class UsersController extends AppController {
         if($this->Auth->user('role') == 'admin'){
             $this->redirect('/admin/products/');
         }else{
-            redirect('/dealers/');
+            $this->redirect('/dealers/');
         }
     }
 

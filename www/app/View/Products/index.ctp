@@ -16,10 +16,22 @@
 
             <div class="item-purchase">
                 <h4>100<? #echo $value['Product']['price'] ?></h4>
-                <? echo $this->Html->link( 'Add to cart',
+                <? /*
+                    echo $this->Html->link( 'Add to cart',
                                            array('controller' => 'carts', 'action' => 'add', $value['Product']['id']),
                                            array('class' => 'green awesome small'),
-                                           array('escape' => false)); ?>
+                                           array('escape' => false)); */?>
+
+                <?php echo $this->Form->create('Carts', array('type' => 'post', 'action' => '/add/'));?>
+                    <fieldset>
+                    <legend><?php echo __('Please enter your username and password'); ?></legend>
+                    <?php
+                        echo $this->Form->input('qty', array('class' => 'quantity-input') );
+                        echo $this->Form->hidden('product_id', array('value' => $value['Product']['id']));
+                    ?>
+                    </fieldset>
+                <?php echo $this->Form->end(__('Buy'));?>
+                
             </div>
 
 		</li>
