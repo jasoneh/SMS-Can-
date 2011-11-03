@@ -86,6 +86,15 @@ class UsersController extends AppController {
     public function logout() {
         $this->redirect($this->Auth->logout());
     }
+
+    /**
+     * Checking if a user is logged in to present login/logout link in top menu
+     * called from elements/login_logout.ctp
+     * @return void
+     */
+    public function loggedin(){
+        return $this->Auth->user('username');
+    }
 }
 
 

@@ -27,7 +27,8 @@
             <ul class="clearfix">
                 <li class="nav-home"><a href="/"><span class="olive">SMS</span><span class="grey">Canada</span></a>
                 </li>
-                <li class="nav-last"><span class="olive">Login</span> </li>
+                <!--<li class="nav-last"><span class="olive">Login</span> </li>-->
+                <?php echo $this->element('login_logout'); ?>
                 <li><? echo $this->Html->link($next_language, '/pages/togglelanguage'); ?></li>
                 
 
