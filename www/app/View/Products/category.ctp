@@ -2,21 +2,36 @@
     <div class="products view">
         <h2><? echo $category_name ?></h2>
 
+        <? echo $this->element('product_paginator'); ?>
+        
         <ul class="product-list">
-        <?php foreach ($products as $key => $value): ?>
+        <?
+            foreach ($products as $key => $value):
+
+                # Set price depending on dealer type
+                # default to house dealers price
+
+                if($dealer_type_id == 2){
+                    $price = $value['Product']['price_whole_sale'];
+                }else{
+                    $price = $value['Product']['price_house'];
+                }
+        ?>
             <li class="item">
 
                 <img src="/smscanada/app/webroot/media/products/product_thumbnail.png" class="item-thumbnail"/>
+                
                 <?php echo $this->Html->link(
                         $value['Product']['name'],
                         array('controller' => 'products', 'action' => 'view', $value['Product']['id']),
                         array('class' => 'item-link')
                     );
                 ?>
-                <p class="item-description">The description goes here ::: <? echo $value['Product']['description']?></p>
+                <p class="item-description"><? echo $value['Product']['description']?></p>
 
                 <div class="item-purchase">
-                    <p>Price: 3030</p>
+
+                    <p class="item-price">$ <? echo $price?> </p>
                     <!--<a href="" class="awesome green">Add to cart</a>-->
                     <? echo $this->Html->link(
                             'Add to cart',
@@ -28,8 +43,10 @@
                 <div style="clear: both"></div>
             </li>
         <?php endforeach; ?>
+
         </ul>
 
+        <? echo $this->element('product_paginator'); ?>
         <?php
         /*
             echo $paginator->counter(array(

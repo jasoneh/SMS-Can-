@@ -14,12 +14,12 @@ class ProductsController extends AppController {
 
 	var $helpers = array('Html', 'Session', );
     var $components = array('Auth',);
-    var $uses = array('Product', 'Category', 'Manufacturer');
+    var $uses = array('Product', 'Category', 'Manufacturer', 'User', 'DealerType');
 	var $scaffold;
 
 	// Allow following actions to non logged in users
     function beforeFilter() {
-        $this->Auth->allow(array('index', 'view', ));
+        $this->Auth->allow(array('index', 'view', 'category',));
     }
 
 	/* List products, paginate them and order by creation */
@@ -61,12 +61,32 @@ class ProductsController extends AppController {
         $this->Category->id = $category_id;
         $category_name = $this->Category->field('description');
 
-		$products = $this->paginate('Product',
-                                    array('Product.category_id' => $category_id),
-                                    array('order' => 'Product.name')
+        /*
+        // Get products belonging to given category from db. Use distinct to avoid duplicates. Its the find() method which sometimes pulls out duplicates
+        $products = $this->Product->find('all', array(
+                          'fields' => array('DISTINCT id', 'name', 'description', 'description_french', 'parts_number', 'price_house', 'price_wholesale'),
+                          'conditions' => array('Product.category_id' => $category_id)));
+        */
+
+        // Paginate results, products belonging to a given category
+        $this->paginate = array(
+            'fields' => array('DISTINCT id', 'name', 'description', 'description_french', 'parts_number', 'price_house', 'price_wholesale'),
+            'conditions' => array('Product.category_id' => $category_id),
+            'order' => array('Product.name ASC'),
+            'limit' => 25   # Limit to 25 products per page
         );
-		$this->set(compact('products', 'category_name'));
-        #$this->render();
+
+        $products = $this->paginate('Product');
+        #$user = $this->User->find('all', array('conditions' => array('User.id' => $this->Session->read('Auth.User.id'))));
+        # TODO: Move this into a generic function in the app_controller so that we always can check the dealers information
+        $user = $this->User->findById($this->Session->read('Auth.User.id'));
+        $dealer_type = $this->DealerType->find('list', array('fields' => array('name'), 'conditions' => array('id' => $user['Dealer']['dealer_type_id'])));
+
+        $dealer_type_name = current($dealer_type);  # extract value from array
+        $dealer_type_id = key($dealer_type);        # extract key from array
+
+		$this->set(compact('products', 'category_name', 'dealer_type_id', 'dealer_type_name'));
+
 	}
 
 
@@ -76,12 +96,18 @@ class ProductsController extends AppController {
      *
      * */
 
-    function admin_index(){
-        $products = $this->paginate('Product',
-                                    array('Product.category_id' => $category_id),
-                                    array('order' => 'Product.name')
-        );
-		$this->set(compact('products', 'category_name'));
+    function admin_index($category_id=null){
+        $category = $this->Category->findById($category_id);
+        if($category_id){
+            $this->paginate = array(
+                        'conditions' => array('Product.category_id' => $category_id),
+                        'order' => 'Product.name ASC');
+        }else{
+            $this->paginate = array(
+                        'order' => 'Product.name');
+        }
+        $products = $this->paginate('Product');
+		$this->set(compact('products', 'category'));
     }
 
 

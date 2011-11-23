@@ -10,7 +10,6 @@ class AppController extends Controller {
     );
 
     function beforeFilter(){
-        echo "beforefilter";
         $this->_checkUser();
         $this->_checkAdmin();
         $this->_setLanguage();
