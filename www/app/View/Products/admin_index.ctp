@@ -1,3 +1,4 @@
+<h1>Products</h1>
 <div class="products index">
 <h2><?php __('Products');?></h2>
 <p>

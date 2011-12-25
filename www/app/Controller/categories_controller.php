@@ -1,6 +1,10 @@
 <?php
+/**
+ * 
+ */
+require_once('categories_admin_controller.php');
 
-class CategoriesController extends AppController{
+class CategoriesController extends CategoriesAdminController{
 
     var $name = 'Categories';
     var $helpers = array('Html', 'Session', );

@@ -23,6 +23,9 @@
 
     Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
     Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+
+    #Router::connect('/admin/', array('controller' => 'users', 'action' => 'index','add', 'admin' => true,'prefix' => 'admin','layout' => 'admin'));
+    Router::connect('/admin/', array('controller' => 'admin_dashboard', 'action' => 'index', 'admin' => true,'prefix' => 'admin','layout' => 'admin'));
     /*
      * Localization URLs
      

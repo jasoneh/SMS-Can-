@@ -4,7 +4,7 @@ class UsersController extends AppController {
 
     var $components = array('Auth');
     public function beforeFilter() {
-       parent::beforeFilter();
+        parent::beforeFilter();
         $this->Auth->allow('*'); // Letting users register themselves
     }
 

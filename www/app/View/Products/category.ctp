@@ -1,7 +1,9 @@
 <div id="main">
     <div class="products view">
+    <?php if(!empty($category_name)): ?>
         <h2><? echo $category_name ?></h2>
-
+    <?php endif; ?>
+        
         <? echo $this->element('product_paginator'); ?>
         
         <ul class="product-list">
@@ -32,6 +34,17 @@
                 <div class="item-purchase">
 
                     <p class="item-price">$ <? echo $price?> </p>
+
+                    <?php echo $this->Form->create('Carts', array('type' => 'post', 'action' => '/add/'));?>
+                        <fieldset>
+                        <legend><?php echo __('Please enter your username and password'); ?></legend>
+                        <?php
+                            echo $this->Form->input('qty', array('class' => 'quantity-input') );
+                            echo $this->Form->hidden('product_id', array('value' => $value['Product']['id']));
+                        ?>
+                        </fieldset>
+                    <?php echo $this->Form->end(__('Buy'));?>
+
                     <!--<a href="" class="awesome green">Add to cart</a>-->
                     <? echo $this->Html->link(
                             'Add to cart',

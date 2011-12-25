@@ -1,3 +1,7 @@
+<?php
+    require_once('category.ctp');
+?>
+
 <div id="main">
 	<div class="products index">
 	<h2><?php __('Featured products');?></h2>
