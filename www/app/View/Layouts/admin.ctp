@@ -134,7 +134,14 @@
     <div class="branding">&nbsp;</div>
 
     <!-- Title -->
-    <div class="admin-title">Grappelli</div>
+    <div class="admin-title">
+    <?php
+        echo $this->Html->link(
+        __('SMSCanada Administration'),
+            array('controller' => 'admin_dashboard', 'action' =>'index')
+        );
+    ?>
+    </div>
 
         <ul id="user-tools">
             <!-- Username -->
@@ -148,9 +155,11 @@
                     Change password</a></li>
                     <!-- Logout -->
 
-                        <li><a href="/admin/logout/">
-
-                    Log out</a></li>
+                        <li><? echo $this->Html->link(
+                            __('Logout'),
+                            array('controller' => 'users', 'action' => 'logout'))
+                            ?>
+                        </li>
                 </ul>
             </li>
             <!-- Userlinks -->

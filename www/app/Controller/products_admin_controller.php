@@ -1,11 +1,11 @@
 <?php
+/*
+ * Admin action
+ * ProductsAdminController is extended by the ProductsController
+ */
 
 class ProductsAdminController extends AppController{
 
-    /*
-     * Admin controllers
-     * Is extended by the ProductsController
-     */
 
     function beforeFilter(){
         parent::beforeFilter();
@@ -19,13 +19,15 @@ class ProductsAdminController extends AppController{
     function admin_index($category_id=null){
         $this->layout = 'admin';
         $category = $this->Category->findById($category_id);
+
+        # TODO: Order products by name, not description (change db-table name?)
+        $order = 'Product.description ASC';
         if($category_id){
             $this->paginate = array(
                         'conditions' => array('Product.category_id' => $category_id),
-                        'order' => 'Product.name ASC');
+                        'order' => $order);
         }else{
-            $this->paginate = array(
-                        'order' => 'Product.name');
+            $this->paginate = array('order' => $order);
         }
         $products = $this->paginate('Product');
 
@@ -41,7 +43,7 @@ class ProductsAdminController extends AppController{
 
 
     function admin_add(){
-        // on POST
+
         $this->layout = 'admin';
         if(!empty($this->data)){
             if($this->Product->save($this->data)){
@@ -81,7 +83,7 @@ class ProductsAdminController extends AppController{
         }else if($this->request->is('post')){
             if($this->Product->save($this->request->data)){
                 $this->Session->setFlash('Product was saved successfully');
-                $this->redirect(array('action' => 'admin_edit', $id));
+                $this->redirect(array('action' => 'admin_index'));
             }else{
                 $this->Session->setFlash('Could not save Product');
             }

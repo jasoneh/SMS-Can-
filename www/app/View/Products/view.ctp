@@ -16,6 +16,7 @@
     // TODO: Do dealer type checkup in user model
     $user = 'house-dealer'; # FIXME: temporary fix
     $price = 'must fix price setting by linking correctly in Products/view.ctp';
+    # TODO: Set price correctly
     if($user == 'house-dealer'){
         #$price = $product['Product']['price_house'];
     }else{
@@ -32,7 +33,6 @@
         <? echo $this->Html->image('dummy_product.jpg'); ?>
 
         <h1><? echo $product['Product']['name'] ?> </h1>
-        <p><a href="dummy_url=<?php echo $product['Product']['category_id']; ?>">List products of this category</a></p>
         <p>
         <?php echo $this->Html->link("List products of this category",
             array('controller' => 'products', 'action' => 'category', $product['Category']['id'])); ?>

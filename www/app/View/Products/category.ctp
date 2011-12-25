@@ -1,3 +1,8 @@
+<?php
+/**
+ * Lists products of a given category
+ */
+?>
 <div id="main">
     <div class="products view">
     <?php if(!empty($category_name)): ?>
@@ -12,6 +17,7 @@
 
                 # Set price depending on dealer type
                 # default to house dealers price
+                # TODO: Set prices correctly, there shall only be one dealer type with one price
 
                 if($dealer_type_id == 2){
                     $price = $value['Product']['price_whole_sale'];

@@ -8,7 +8,8 @@
  * @package       cake
  * @subpackage    cake.cake.libs.controller
  */
-class CartsController extends AppController {
+require_once('carts_admin_controller.php');
+class CartsController extends AdminCartsController {
 
 	var $name = 'Carts';
 
@@ -111,72 +112,5 @@ class CartsController extends AppController {
         echo "removing ". $product_id;
     }
 
-    
-
-    /**
-     * Admin controllers
-     *
-     * */
-
-    function admin_index(){
-        $products = $this->paginate('Product',
-                                    array('Product.category_id' => $category_id),
-                                    array('order' => 'Product.name')
-        );
-		$this->set(compact('products', 'category_name'));
-    }
-
-
-    function admin_add(){
-        // on POST
-        if(!empty($this->data)){
-            if($this->Product->save($this->data)){
-                 //Set a session flash message and redirect.
-                $this->Session->setFlash("Product added successfully!");
-            }
-        }else{
-            $categories = $this->Category->find('list');
-            $manufacturers = $this->Manufacturer->find('list');
-            $this->set(
-                compact('manufacturers', 'categories')
-            );
-        }
-    }
-
-    function admin_edit($id=null){
-        if(empty($this->data)){
-            $this->data = $this->Product->findById($id);
-        }else{
-            if(isset($this->Product->data)){
-                $this->Product->set($this->data);
-                if($this->Product->validates()){
-                    if($this->Product->save()){
-                        $this->Session->setFlash('Product saved successfully');
-                    }
-                }else{
-                    $errors = $this->Product->invalidFields();
-                    $this->Session->setFlash(implode(',', $errors));
-                }
-
-                // redirect to the product index page
-                $this->redirect(array(
-                    'controller' => 'products',
-                    'action' => 'edit',
-                    $id
-                ));
-            } // endif
-        }
-    }
-
-    function admin_delete($id = null){
-        $product = $this->Product->findById($id);
-        if($this->Product->delete($id)){
-            $this->Session->setFlash('Product ' .$id. ' deleted successfully');
-            $this->redirect(array(
-                  'controller' => 'products',
-                  'action' => 'index',
-                            ));
-        }
-    }
 
 }

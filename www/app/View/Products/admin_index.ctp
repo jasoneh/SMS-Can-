@@ -15,7 +15,7 @@ echo $this->Paginator->counter(array(
 	<th><?php echo $this->Paginator->sort('name');?></th>
 	<th><?php echo $this->Paginator->sort('name_french');?></th>
 	<th><?php echo $this->Paginator->sort('description');?></th>
-	<!--<th><?php /*echo $this->Paginator->sort('description_french');*/?></th>-->
+	<th><?php echo $this->Paginator->sort('description_french'); ?></th>
 	<th><?php echo $this->Paginator->sort('detail');?></th>
 	<!--<th><?php /*echo $this->Paginator->sort('detail_french');*/?></th>-->
 	<th><?php echo $this->Paginator->sort('new');?></th>
@@ -51,9 +51,10 @@ foreach ($products as $product):
 		<td>
 			<?php echo $product['Product']['description']; ?>
 		</td>
+        <? /*
 		<td>
 			<?php echo $product['Product']['description_french']; ?>
-		</td>
+		</td> */?>
 		<td>
 			<?php echo $product['Product']['detail']; ?>
 		</td>
@@ -61,10 +62,18 @@ foreach ($products as $product):
 			<?php echo $product['Product']['detail_french']; ?>
 		</td>
 		<td>
-			<?php echo $product['Product']['new']; ?>
+			<?php
+                if($product['Product']['new'] == 1){
+                    echo '<img src="/smscanada/grappelli/img/icons/icon-yes.png" />';
+                };
+            ?>
 		</td>
 		<td>
-			<?php echo $product['Product']['sale']; ?>
+			<?php
+                if($product['Product']['sale'] == 1){
+                    echo '<img src="/smscanada/grappelli/img/icons/icon-yes.png" />';
+                };
+            ?>
 		</td>
 		<td>
 			<?php echo $product['Product']['created']; ?>
