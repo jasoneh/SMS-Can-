@@ -7,7 +7,7 @@ class DealersController extends AppController {
     /*
      * Dealer dashboard
      */
-	function index() {
+	function index(){
         $cart_contents = $this->Carts->findByUserId('list');
         $this->set(compact('cart_contents'));
 	}

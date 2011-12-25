@@ -55,25 +55,6 @@ class ProductsAdminController extends AppController{
                 compact('manufacturers', 'categories')
             );
         }
-
-
-/*        if(isset($this->Product->data)){
-			$this->Product->set($this->data);
-			if($this->Product->validates()){
-				if($this->Product->save()){
-					$this->Session->setFlash('Product saved successfully');
-				}
-			}else{
-				$errors = $this->Product->invalidFields();
-				$this->Session->setFlash(implode(',', $errors));
-			}
-
-			// redirect to the product index page
-			$this->redirect(array(
-				'controller' => 'products',
-				'action' => 'index'
-			));
-		} // endif*/
     }
 
     /**
@@ -107,36 +88,6 @@ class ProductsAdminController extends AppController{
         }
     }
 
-    function slask_admin_edit($id=null){
-        $this->layout = 'admin';
-        $product = $this->Product->findById($id);
-        #echo "<pre>"; print_r($product); echo "</pre>";
-
-        if(empty($this->data)){
-            $this->product = $this->Product->findById($id);
-        }else{
-            if(isset($this->Product->data)){
-                $this->Product->set($this->data);
-                if($this->Product->validates()){
-                    if($this->Product->save()){
-                        $this->Session->setFlash('Product saved successfully');
-                    }
-                }else{
-                    $errors = $this->Product->invalidFields();
-                    $this->Session->setFlash(implode(',', $errors));
-                }
-
-                // redirect to the product index page
-                $this->redirect(array(
-                    'controller' => 'products',
-                    'action' => 'edit',
-                    $id
-                ));
-            } // endif
-        }
-        $this->set(compact('product'));
-    }
-
     function admin_delete($id = null){
         $product = $this->Product->findById($id);
         if($this->Product->delete($id)){
@@ -147,6 +98,4 @@ class ProductsAdminController extends AppController{
                             ));
         }
     }
-
-    
 }

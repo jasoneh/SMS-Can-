@@ -7,7 +7,7 @@ require_once('categories_admin_controller.php');
 class CategoriesController extends CategoriesAdminController{
 
     var $name = 'Categories';
-    var $helpers = array('Html', 'Session', );
+    var $helpers = array('Html', 'Session', 'Form');
     var $uses = array('Product', 'Category', 'Manufacturer');
     var $scaffold;
 
