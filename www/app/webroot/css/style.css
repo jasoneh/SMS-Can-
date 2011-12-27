@@ -222,6 +222,23 @@ table{
     border: 1px solid #F5F5F1;
 }
 
+/* Featured products */
+ul.featured-grid{
+    border:  1px solid #303;
+    width: 99.9%;
+    margin: 0;
+    padding:  0;
+}
+    ul.featured-grid li.item{
+        border: 1px solid #eee;
+        overflow: hidden;
+        float: left;
+        margin: 0;
+        padding: 4px;
+        width: 23%; /* TODO: Adjust properly */
+    }
+
+
 /* Product listing */
 
 ul.product-list{
