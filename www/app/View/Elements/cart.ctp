@@ -1,21 +1,12 @@
 <?php
-/**
- * Render a list of products in cart
- * @author Mathias Tervo
- */
+/** Render an overview of a users current shopping cart*/
 ?>
-
 <h4>Cart</h4>
-<ul>
 <?php
-
-$items_in_cart = $this->requestAction('carts/all');
-echo "items". $items_in_cart;
-/*foreach($items_in_cart as $key => $value):
-
-    echo $key. ' > ' . $value;
-
-endforeach;*/
-
+    $count_and_sum = $this->requestAction('carts/count_and_sum');
+    if(!empty($count_and_sum)):
 ?>
-</ul>
+        <p><? echo $count_and_sum['nof_items'] . " items: $" . $count_and_sum['sum'] ?></p>
+<?
+    endif;
+?>

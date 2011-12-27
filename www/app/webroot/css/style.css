@@ -252,13 +252,17 @@ ul.product-list{
     }
 
     ul.product-list li.item .item-thumbnail{
-        border: 1px solid #eee;
+        border: 1px solid #efe;
         margin-right: 16px;
         float: left;
     }
     ul.product-list li.item a.item-link{
     }
     ul.product-list li.item .item-description{
+    }
+    ul.product-list li.item .item-box{
+        float: left;
+        width: 72%;
     }
     ul.product-list li.item .item-purchase{
         float: right;
@@ -345,7 +349,7 @@ ul.listings{
 }
 
 
-/* admin */
+/* admin (has moved to grappelli) */
 
 #flashMessage{
     padding:  8px;
@@ -386,4 +390,19 @@ ul.listings{
 }
 .form{
 
+}
+.item-purchase{
+
+    width: 150px;
+}
+.item-purchase label{
+    width: 60px;
+
+}
+
+.item-purchase input[type=text]{
+    width: 60px;
+
+}
+.item-purchase input[type=submit]{
 }

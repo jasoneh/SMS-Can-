@@ -40,7 +40,7 @@ class ProductsController extends ProductsAdminController {
         }
 
         $pagination_array = array(
-            'fields' => array('DISTINCT id', 'name', 'description', 'description_french', 'parts_number', 'price_house', 'price_wholesale'),
+            'fields' => array('DISTINCT id', 'name', 'description', 'description_french', 'parts_number', 'price', ),
             'conditions' => $conditions,
             'order' => array('Product.created DESC'),
             'limit' => 25   # Limit to 25 products per page
@@ -64,7 +64,7 @@ class ProductsController extends ProductsAdminController {
         // Paginate results, products belonging to a given category
         /*
         $this->paginate = array(
-            'fields' => array('DISTINCT id', 'name', 'description', 'description_french', 'parts_number', 'price_house', 'price_wholesale'),
+            'fields' => array('DISTINCT id', 'name', 'description', 'description_french', 'parts_number', 'price', ),
             #'conditions' => array('Product.category_id' => $category_id),
             'order' => array('Product.created DESC'),
             'limit' => 25   # Limit to 25 products per page
