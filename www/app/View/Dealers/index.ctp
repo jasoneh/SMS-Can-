@@ -18,13 +18,23 @@ dealers home
 
 <h2>Cart</h2>
     <p>Cart contents</p>
-    <pre><? print_r($cart_contents)?></pre>
+    <pre><? print_r($cart_items)?></pre>
     <table>
         <tr>
-            <th>Product id</th>
+            <th>#</th>
             <th>Name</th>
             <th>Price</th>
+            <th>Remove</th>
         </tr>
+    <? foreach($cart_items as $item): ?>
+       <tr>
+           <td><? echo $this->Html->link($item['Product']['parts_number'],
+                                         array('controller' => 'carts', 'action' => 'delete', $item['Product']['id'])); ?></td>
+           <td><? echo $item['Product']['name'] ?></td>
+           <td><? echo $item['Product']['price'] ?></td>
+           <td><? echo $this->Html->link('x', array('controller' => 'carts', 'action' => 'remove', $item['Product']['id'])); ?></td>
+       </tr>
+    <? endforeach; ?>
 
 
     </table>

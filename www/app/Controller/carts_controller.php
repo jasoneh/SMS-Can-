@@ -44,11 +44,12 @@ class CartsController extends AdminCartsController {
         $user_id = AuthComponent::user('id');
         $cart_items = $this->Cart->find('all', array( 'conditions' => array( 'user_id' => $user_id), ));
         $sum = $count = 0;
+
         foreach($cart_items as $item){
 //            $sum += $item['Product']['price'];
             if(is_numeric($item['Product']['price'])){
                 $sum += $item['Product']['price'];
-                $count++;
+                $count+=$item['Cart']['qty'];
             }
         }
         return array(
@@ -100,71 +101,16 @@ class CartsController extends AdminCartsController {
     }
 
 
-    public function oldadd(){
+    public function remove($id=null){
+        // TODO: Allow user to remove a quantity of items
         $user_id = AuthComponent::user('id');
-        /** Add this product to session */
-
-        if(!empty($this->data)){
-            // we have data, lets save it
-            #print_r($this->data);
-
-            // check that the requested product exists
-            $product = $this->Product->findById($this->data['Carts']['product_id']);
-            if(!empty($product)){
-                /*$item_in_cart = $this->Cart->find('all', array(
-                                                           'fields' => array('id', 'user_id', 'product_id', 'qty'),
-                                                           'conditions' => array(
-                                                                'user_id' => $user_id,
-                                                                'product_id' => $product['Product']['id'])));*/
-
-                $cart_id = $this->Cart->find('list', array(
-                                                    'conditions' => array(
-                                                        'product_id' => $product['Product']['id'],
-                                                        'user_id' => $user_id
-                                                    ),
-                                                    'fields' => array('id')
-                                                               ));
-                $quantity = $this->validate_quantity($this->data['Carts']['qty']);
-
-                if(!empty($cart_id)){
-                    #echo "product exists, update existing one";
-                    # since we're updating we need the id for this particular item
-                    $this->Cart->read(null, $cart_id[1]);
-                    $this->Cart->set(array(
-                                             'user_id' => $user_id,
-                                             'product_id' => $product['Product']['id'],
-                                             'qty' => $quantity
-                                     ));
-                    if($this->Product->validates()){
-                        $this->Cart->save();
-                        $this->Session->setFlash(__('Product added to cart'));
-                    }
-                }else{
-                    // cart item does not exist, create a new row
-                    $cart_data =array(
-
-                            'user_id' => $user_id,
-                            'product_id' => $product['Product']['id'],
-                            'qty' => $this->data['Carts']['qty']
-                        
-                    );
-                    if($this->Cart->save($cart_data)){
-                        $this->Session->setFlash(__('Product added to cart'));
-                    }
-
-                }
-            }else{
-                // product doesn't exist in database
-                $this->Session->setFlash(__('You tried to add a non-existing product. Please try again'));
+        $items_to_delete = $this->Cart->find('list', array('conditions' => array('user_id' => $user_id, 'product_id' => $id)));
+        foreach($items_to_delete as $key => $value){
+            if($this->Cart->delete($key)){
+                $this->Session->setFlash(__('Item(s) removed from cart'));
             }
-            $this->redirect($this->referer());
         }
-    }
-
-
-    function remove($product_id){
-        // TODO: calculate and set quantity
-        echo "removing ". $product_id;
+        return false;
     }
 
 

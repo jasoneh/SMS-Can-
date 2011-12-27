@@ -1,15 +1,25 @@
 <?php
+require_once('dealers_admin_controller.php');
 class DealersController extends AppController {
 
 	var $name = 'Dealers';
 	var $helpers = array('Html', 'Form');
-    var $uses = array('Carts');
+    var $uses = array('Auth', 'Product', 'Cart', );
+    public $components = array('Auth');
+
+    function beforeFilter(){
+        parent::beforeFilter();
+        $this->Auth->allow('*');
+    }
+
     /*
      * Dealer dashboard
      */
 	function index(){
-        $cart_contents = $this->Carts->findByUserId('list');
-        $this->set(compact('cart_contents'));
+        $user_id = AuthComponent::user('id');
+        #$cart_contents = $this->Carts->findByUserId('all');
+        $cart_items = $this->Cart->find('all', array( 'conditions' => array( 'user_id' => $user_id), ));
+        $this->set(compact('cart_items'));
 	}
 
 	function view($id = null) {
