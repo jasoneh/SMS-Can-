@@ -42,20 +42,25 @@ class AdminDealersController extends AppController{
 		$this->set('dealer', $this->Dealer->read(null, $id));
 	}
 
-	function admin_add() {
-		if (!empty($this->data)) {
-			$this->Dealer->create();
-			if ($this->Dealer->save($this->data)) {
-				$this->Session->setFlash(__('The Dealer has been saved', true));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The Dealer could not be saved. Please, try again.', true));
-			}
-		}
-		$users = $this->Dealer->User->find('list');
-		$this->set(compact('users'));
-	}
 
+    public function admin_add(){
+
+        $this->layout = 'admin';
+        if($this->request->is('post') && !empty($this->data)){
+            // save
+            if($this->Dealer->save($this->data)){
+                // retrieve id from this dealer
+                $id = $this->Dealer->id;
+                $this->Session->setFlash(__("Dealer saved successfully"));
+                // redirect to edit page for this dealer
+                $this->redirect(array('controller' => 'Dealers', 'action' => 'admin_edit', $id));
+                exit();
+            }
+        }else{
+            $users = $this->Dealer->User->find('list', array('fields' => array('id', 'username'), 'conditions' => array('role' => 'dealer')));
+            $this->set(compact('users'));
+        }
+    }
 
     public function admin_edit($id=null){
 
@@ -80,25 +85,6 @@ class AdminDealersController extends AppController{
     }
 
 
-	function old_admin_edit($id = null) {
-		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid Dealer', true));
-			$this->redirect(array('action' => 'index'));
-		}
-		if (!empty($this->data)) {
-			if ($this->Dealer->save($this->data)) {
-				$this->Session->setFlash(__('The Dealer has been saved', true));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The Dealer could not be saved. Please, try again.', true));
-			}
-		}
-		if (empty($this->data)) {
-			$this->data = $this->Dealer->read(null, $id);
-		}
-		$users = $this->Dealer->User->find('list');
-		$this->set(compact('users'));
-	}
 
 	function admin_delete($id = null) {
 		if (!$id) {
@@ -112,4 +98,40 @@ class AdminDealersController extends AppController{
 		$this->Session->setFlash(__('Dealer was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
+
+
+    function old_admin_add() {
+        if (!empty($this->data)) {
+            $this->Dealer->create();
+            if ($this->Dealer->save($this->data)) {
+                $this->Session->setFlash(__('The Dealer has been saved', true));
+                $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash(__('The Dealer could not be saved. Please, try again.', true));
+            }
+        }
+        $users = $this->Dealer->User->find('list');
+        $this->set(compact('users'));
+    }
+
+    function old_admin_edit($id = null) {
+        if (!$id && empty($this->data)) {
+            $this->Session->setFlash(__('Invalid Dealer', true));
+            $this->redirect(array('action' => 'index'));
+        }
+        if (!empty($this->data)) {
+            if ($this->Dealer->save($this->data)) {
+                $this->Session->setFlash(__('The Dealer has been saved', true));
+                $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash(__('The Dealer could not be saved. Please, try again.', true));
+            }
+        }
+        if (empty($this->data)) {
+            $this->data = $this->Dealer->read(null, $id);
+        }
+        $users = $this->Dealer->User->find('list');
+        $this->set(compact('users'));
+    }
+
 }
