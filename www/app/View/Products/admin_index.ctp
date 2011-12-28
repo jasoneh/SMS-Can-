@@ -43,7 +43,7 @@ foreach ($products as $product):
 			<?php echo $product['Product']['parts_number']; ?>
 		</td>
 		<td>
-			<?php echo $product['Product']['name']; ?>
+			<?php echo $this->Html->link($product['Product']['name'], array('action' => 'edit', $product['Product']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $product['Product']['name_french']; ?>

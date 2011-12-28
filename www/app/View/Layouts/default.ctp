@@ -1,5 +1,13 @@
 <?
-    $next_language = 'french';
+    /**
+     * Display name for the toggle language link in the head menu
+     */
+    $lang = $this->Session->read('lang');
+    if($lang == 'en'){
+        $next_language = 'french';
+    }else{
+        $next_language = 'english';
+    }
 ?>
 
 <!DOCTYPE html>
@@ -32,10 +40,10 @@
                 </li>
                 <!--<li class="nav-last"><span class="olive">Login</span> </li>-->
                 <?php echo $this->element('login_logout'); ?>
-                <li><? echo $this->Html->link($next_language, '/pages/togglelanguage'); ?></li>
+                <li><? echo $this->Html->link($next_language, '/languages/toggle'); ?></li>
                 
 
-                <li><a href="#">contact</a></li>
+                <li><? echo $this->Html->link(__('Contact'), array('controller' => 'contact', ) ); ?></li>
                 <li><a href="#">dealers</a></li>
                 <li><a href="#">parts charts</a></li>
                 <li><a href="/smscanada/index.php/products">Products</a></li>
@@ -58,12 +66,8 @@
             grid_7
         </div>
         <div class="grid_5">
-            <p>
-                SMSCanada -header 380
-            </p>
-            <p>
-                Cart
-            </p>
+            <p>SMSCanada - header 380</p>
+            <p>lang: <? echo $this->Session->read('lang'); ?></p>
         </div>
         <!-- end .grid_5 -->
 
@@ -98,5 +102,7 @@
 
 </section>
 
+
 </body>
 </html>
+

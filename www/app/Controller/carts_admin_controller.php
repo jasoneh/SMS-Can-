@@ -7,7 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
  
-class AdminCartsController extends Controller{
+class AdminCartsController extends AppController{
 
     function beforeFilter(){
         parent::beforeFilter();
@@ -20,7 +20,7 @@ class AdminCartsController extends Controller{
      * */
 
     function admin_index(){
-        $this->layout = 'admin';
+        #$this->layout = 'admin';
         $order = 'Cart.id ASC';
         $this->paginate = array('order' =>$order);
         $carts = $this->Paginate('Cart');
@@ -29,7 +29,7 @@ class AdminCartsController extends Controller{
 
 
     function admin_add(){
-        $this->layout = 'admin';
+        #$this->layout = 'admin';
         // on POST
         if(!empty($this->data)){
             if($this->Product->save($this->data)){
@@ -46,7 +46,7 @@ class AdminCartsController extends Controller{
     }
 
     function admin_edit($id=null){
-        $this->layout = 'admin';
+        #$this->layout = 'admin';
         if(empty($this->data)){
             $this->data = $this->Product->findById($id);
         }else{

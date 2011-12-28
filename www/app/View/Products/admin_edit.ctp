@@ -3,11 +3,16 @@
 <div class="products form">
 
 <?php echo $this->Form->create('Product', array('action' => 'edit'));?>
-	<fieldset>
+	<fieldset class="module">
  		<legend><?php __('Edit Product');?></legend>
+
   <?php echo $this->Form->input('parts_number'); ?>
         <label for="category_id">Category</label>
   <?php echo $this->Form->select('category_id', $this->request->data['Category']); ?>
+
+        <label for="scissors_category_id">Scissors Category</label>
+  <?php echo $this->Form->select('scissors_category_id', $this->request->data['ScissorsCategory']); ?>
+
         <label for="manufacturer_id">Manufacturer</label>
   <?php echo $this->Form->select('manufacturer_id', $this->request->data['Manufacturer']); ?>
 
@@ -20,7 +25,6 @@
 		echo $this->Form->input('detail_french');
 		echo $this->Form->input('new');
 		echo $this->Form->input('sale');
-		
 	?>
 	</fieldset>
 <?php echo $this->Form->end('Submit');?>

@@ -12,13 +12,20 @@ class Product extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
+        'ScissorsCategory' => array(
+			'className' => 'ScissorsCategory',
+			'foreignKey' => 'scissors_category_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
 		'Manufacturer' => array(
 			'className' => 'Manufacturer',
 			'foreignKey' => 'manufacturer_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		)
+		),
 	);
 
 	var $hasMany = array(
@@ -38,4 +45,3 @@ class Product extends AppModel {
 	);
 
 }
-?>

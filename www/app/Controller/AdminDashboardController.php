@@ -1,6 +1,6 @@
 <?
 
-class AdminDashboardController extends Controller{
+class AdminDashboardController extends AppController{
 
     function beforeFilter(){
         parent::beforeFilter();
@@ -10,8 +10,5 @@ class AdminDashboardController extends Controller{
      * @return void
      */
     public function admin_index(){
-
-        $this->layout = 'admin';
-        
     }
 }

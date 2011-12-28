@@ -15,8 +15,10 @@ class UsersController extends AppController {
     public function index() {
         if($this->Auth->user('role') == 'admin'){
             $this->redirect('/admin/products/');
+            exit();
         }else{
             $this->redirect('/dealers/');
+            exit();
         }
     }
 
@@ -34,6 +36,7 @@ class UsersController extends AppController {
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
                 $this->redirect(array('action' => 'index'));
+                exit();
             } else {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }
@@ -49,6 +52,7 @@ class UsersController extends AppController {
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
                 $this->redirect(array('action' => 'index'));
+                exit();
             } else {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }
@@ -69,15 +73,18 @@ class UsersController extends AppController {
         if ($this->User->delete()) {
             $this->Session->setFlash(__('User deleted'));
             $this->redirect(array('action'=>'index'));
+            exit();
         }
         $this->Session->setFlash(__('User was not deleted'));
         $this->redirect(array('action' => 'index'));
+        exit();
     }
 
 
     public function login() {
         if ($this->Auth->login()) {
             $this->redirect($this->Auth->redirect('/users/'));
+            exit();
         } else {
             $this->Session->setFlash(__('Invalid username or password, try again'));
         }
@@ -85,6 +92,7 @@ class UsersController extends AppController {
 
     public function logout() {
         $this->redirect($this->Auth->logout());
+        exit();
     }
 
     /**
