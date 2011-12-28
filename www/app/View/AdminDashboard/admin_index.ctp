@@ -37,7 +37,14 @@
             <h2><a href="sites/" class="section">Dealers</a></h2>
 
                 <div class="row">
-                    <a href="sites/site/">Sites</a>
+                    <? echo $this->Html->link('Accounts', array('controller' => 'dealers', 'action' => 'admin_index'));  ?>
+                    <ul class="actions">
+                        <li class="add-link"><a href="sites/site/add/">Add</a></li>
+                        <li class="change-link"> <a href="sites/site/">Change</a></li>
+                    </ul>
+               </div>
+                <div class="row">
+                    <a href="sites/site/">Orders</a>
                     <ul class="actions">
                         <li class="add-link"><a href="sites/site/add/">Add</a></li>
                         <li class="change-link"> <a href="sites/site/">Change</a></li>

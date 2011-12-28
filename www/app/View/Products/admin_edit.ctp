@@ -1,5 +1,8 @@
 <h1>Edit product</h1>
-
+<?
+    # short for not having to type all of the css class
+    $textclass = array('class' => 'vTextField');
+?>
 <div class="products form">
 
 <?php echo $this->Form->create('Product', array('action' => 'edit'));?>
@@ -18,7 +21,7 @@
 
     <?php
 		echo $this->Form->input('price_house'); # TODO: Prices shall merge into one singular price setting
-		echo $this->Form->input('name');
+		echo $this->Form->input('name', $textclass);
 		echo $this->Form->input('name_french');
 		echo $this->Form->input('description');
 		echo $this->Form->input('detail');

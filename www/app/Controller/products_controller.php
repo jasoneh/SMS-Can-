@@ -52,7 +52,10 @@ class ProductsController extends ProductsAdminController {
     private function getDealerType(){
         # TODO: Move this into a generic function in the app_controller so that we always can check the dealers information
         $user = $this->User->findById($this->Session->read('Auth.User.id'));
-        $dealer_type = $this->DealerType->find('list', array('fields' => array('name'), 'conditions' => array('id' => $user['Dealer']['dealer_type_id'])));
+        $dealer_type = $this->DealerType->find('list', array(
+                                                            'fields' => array('name'),
+                                                            'conditions' => array(
+                                                                'id' => $user['Dealer']['dealer_type_id'])));
 
         $dealer_type_name = current($dealer_type);  # extract value from array
         $dealer_type_id = key($dealer_type);        # extract key from array

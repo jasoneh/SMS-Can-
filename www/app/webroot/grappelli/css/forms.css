@@ -949,11 +949,13 @@ input[type=text],
 input[type=password], 
 .vDateField, 
 .vTimeField, 
-.vIntegerField, 
+.vIntegerField,
+.number,
 .vPositiveSmallIntegerField, 
 .vManyToManyRawIdAdminField, 
 .vForeignKeyRawIdAdminField {
-    width: 118px;
+    /*width: 118px;*/
+    width: 278px;
 }
 
 input.vTextField, 
