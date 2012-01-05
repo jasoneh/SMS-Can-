@@ -39,7 +39,9 @@ class AdminDealersController extends AppController{
 			$this->Session->setFlash(__('Invalid Dealer', true));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->set('dealer', $this->Dealer->read(null, $id));
+        $dealer = $this->Dealer->read(null, $id);
+        $orders = $this->Order->find('list', array('conditions' => array('dealer_id' => $dealer['Dealer']['id'])));
+		$this->set(compact('dealer', 'orders'));
 	}
 
 

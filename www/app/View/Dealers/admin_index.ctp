@@ -14,7 +14,7 @@ echo $this->Paginator->counter(array(
 ?></p>
 <table cellpadding="0" cellspacing="0">
 <tr>
-	<th><?php echo $this->Paginator->sort('id');?></th>
+	<th><?php #echo $this->Paginator->sort('id');?></th>
 	<th><?php echo $this->Paginator->sort('user_id');?></th>
 	<th><?php echo $this->Paginator->sort('dealer_type_id');?></th>
 	<th><?php echo $this->Paginator->sort('organisation');?></th>
@@ -43,10 +43,15 @@ foreach ($dealers as $dealer):
 ?>
 	<tr<?php echo $class;?>>
 		<td>
-			<?php echo $dealer['Dealer']['id']; ?>
+			<?php #echo $dealer['Dealer']['id']; ?>
+            <?php /*echo $this->Html->link('View',
+                                         array('controller' => 'dealers',
+                                              'action' => 'admin_view', $dealer['Dealer']['id'])); */ ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($dealer['User']['id'], array('controller' => 'users', 'action' => 'view', $dealer['User']['id'])); ?>
+			<?php echo $this->Html->link($dealer['User']['id'],
+                                         array('controller' => 'users',
+                                              'action' => 'admin_view', $dealer['User']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $dealer['Dealer']['dealer_type_id']; ?>

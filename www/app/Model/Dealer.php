@@ -30,4 +30,10 @@ class Dealer extends AppModel {
         )
     );
 
+    var $hasMany = array(
+        'Order' => array(
+            'className' => 'Order',
+            'foreignKey' => 'dealer_id',
+        )
+    );
 }
