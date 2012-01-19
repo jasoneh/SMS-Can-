@@ -13,6 +13,7 @@ class CategoriesController extends CategoriesAdminController{
 
 
     /**
+     * Used by the Element categories.ctp
      * @return list of all categories
      */
     function all(){

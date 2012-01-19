@@ -184,6 +184,9 @@ body {
     border-left: 1px solid #404040;
     border-right: 1px solid #303030;
 }
+.admin-title .menu-item{
+    margin-left: 12px;
+}
 
 
 /*  User Tools ................................................... */

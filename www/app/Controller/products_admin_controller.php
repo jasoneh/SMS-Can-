@@ -38,7 +38,7 @@ class ProductsAdminController extends AppController{
 		$this->set(compact('products', 'category'));
 
         $log = $this->Product->getDataSource()->getLog(false, false);
-        debug($log);
+        #debug($log);
 
     }
 

@@ -30,7 +30,8 @@ class ProductsController extends ProductsAdminController {
     function beforeFilter() {
         parent::beforeFilter();
         $this->layout = 'default';
-        $this->Auth->allow(array('index', 'view', 'category',));
+        #$this->Auth->allow(array('index', 'view', 'category', 'featured', ));
+        $this->Auth->allow('*');
     }
 
     private function customPagination($category_id=null){
@@ -106,4 +107,13 @@ class ProductsController extends ProductsAdminController {
 
 	}
 
+    /**
+     * @return list of featured products
+     */
+    public function featured(){
+        return $this->Product->find('all', array(
+            'order' => 'Product.created DESC',
+            'fields' => array('DISTINCT id', 'name', 'description', 'parts_number', 'price', ),
+            'limit' => 8));
+    }
 }

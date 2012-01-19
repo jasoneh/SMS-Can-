@@ -32,7 +32,7 @@
                     <fieldset>
                     <legend><?php echo __('Please enter your username and password'); ?></legend>
                     <?php
-                        echo $this->Form->input('qty', array('class' => 'quantity-input') );
+                        echo $this->Form->input('qty', array('class' => 'quantity-input', 'label' => 'Quantity', 'value' => 1) );
                         echo $this->Form->hidden('product_id', array('value' => $value['Product']['id']));
                     ?>
                     </fieldset>

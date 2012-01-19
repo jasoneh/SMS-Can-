@@ -6,22 +6,23 @@
 		echo $this->renderElement('categories');
 	?>
 	*/
+    $lang = $this->Session->read('lang');
 
-    if($this->Session == 'french'){
+    /**
+     * We'll set the bilingual fields here
+     * so we don't have to do multiple if/else checks later
+     */
+    if($lang == 'en'){
+        $name = $product['Product']['name_french'];
         $description = $product['Product']['description_fr'];
     }else{
+        $name = $product['Product']['name'];
         $description = $product['Product']['description'];
     }
 
     // TODO: Do dealer type checkup in user model
-    $user = 'house-dealer'; # FIXME: temporary fix
-    $price = 'must fix price setting by linking correctly in Products/view.ctp';
-    # TODO: Set price correctly
-    if($user == 'house-dealer'){
-        #$price = $product['Product']['price_house'];
-    }else{
-        #$price = $product['Product']['price_wholesale'];
-    }
+    #$user = 'house-dealer'; # FIXME: temporary fix
+
 ?>
 </div>
 
@@ -32,13 +33,16 @@
 	    <!--<img src="localhost:8888/smscanada/media/products/dummy_product.jpg" />-->
         <? echo $this->Html->image('dummy_product.jpg'); ?>
 
-        <h1><? echo $product['Product']['name'] ?> </h1>
+        <h1><? echo $name?> </h1>
         <p>
+        <!-- Category breadcrumbs -->
+        <p><a href="">Categories</a> &raquo; <? echo $product['Category']['name'];?></p>
         <?php echo $this->Html->link("List products of this category",
             array('controller' => 'products', 'action' => 'category', $product['Category']['id'])); ?>
         </p>
+        <p><? echo $description; ?></p>
 	
-	    <p>Price: <?php echo $price; ?></p>
+	    <p>Price: <?php echo $product['Product']['price']; ?></p>
 	
         <?php
             // Loop over all images belonging to this Product

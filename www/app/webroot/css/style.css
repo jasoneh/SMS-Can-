@@ -236,6 +236,7 @@ ul.featured-grid{
         margin: 0;
         padding: 4px;
         width: 23%; /* TODO: Adjust properly */
+        height: 250px;
     }
 
 

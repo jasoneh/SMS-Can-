@@ -49,7 +49,7 @@
                     <?php echo $this->Form->create('Carts', array('type' => 'post', 'action' => '/add/'));?>
 
                         <?php
-                            echo $this->Form->input('qty', array('class' => 'quantity-input', 'label' => 'Quantity') );
+                            echo $this->Form->input('qty', array('class' => 'quantity-input', 'label' => 'Quantity', 'value' => 1));
                             echo $this->Form->hidden('product_id', array('value' => $value['Product']['id']));
                         ?>
 

@@ -140,10 +140,20 @@
         __('SMSCanada Administration'),
             array('controller' => 'admin_dashboard', 'action' =>'index')
         );
+
+        echo $this->Html->link(__('Dealers'),
+                               array('controller' => 'dealers', 'action' =>'index'),
+                               array('class' => 'menu-item'));
+
+        echo $this->Html->link(__('Products'),
+                               array('controller' => 'products', 'action' =>'index'),
+                               array('class' => 'menu-item'));
     ?>
+
     </div>
 
         <ul id="user-tools">
+
             <!-- Username -->
             <li class="user-options-container collapse closed">
                 <a href="javascript://" class="user-options-handler collapse-handler">mathias</a>

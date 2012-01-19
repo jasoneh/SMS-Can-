@@ -2,10 +2,12 @@
 require_once('dealers_admin_controller.php');
 class DealersController extends AdminDealersController {
 
-
+    var $uses = array('Product', );
+    #var $uses = array('Order', 'Dealers');
     function beforeFilter(){
         parent::beforeFilter();
         $this->Auth->allow('*');
+        $this->layout = 'default';
     }
 
     /*
@@ -14,8 +16,10 @@ class DealersController extends AdminDealersController {
 	function index(){
         $user_id = AuthComponent::user('id');
         #$cart_contents = $this->Carts->findByUserId('all');
+        $new_products = $this->Product->find('all', array('conditions' => array('new' => true)));
+        $new_products = $this->Product->find('all', array('conditions' => array('new' => true)));
         $cart_items = $this->Cart->find('all', array( 'conditions' => array( 'user_id' => $user_id), ));
-        $this->set(compact('cart_items'));
+        $this->set(compact('cart_items', 'new_products'));
 	}
 
 	function view($id = null) {

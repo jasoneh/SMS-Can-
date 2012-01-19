@@ -1,6 +1,6 @@
 dealers home
 
-<h2>New products </h2>
+<h3>New products </h3>
     <ul>
         <li>product</li><li>product</li><li>product</li><li>product</li><li>product</li>
     </ul>
