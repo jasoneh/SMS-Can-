@@ -1,10 +1,10 @@
 
-<h1>View dealer - <? echo $dealer['Dealer']['email'] . ' - ' . $dealer['Dealer']['organisation'] ; ?></h1>
+<h1>View dealer - <?php echo $dealer['Dealer']['email'] . ' - ' . $dealer['Dealer']['organisation'] ; ?></h1>
 
 
 
     <ul class="tools">
-        <li><? echo $this->Html->link(__('Edit dealer', true),
+        <li><?php echo $this->Html->link(__('Edit dealer', true),
                                       array('controller' => 'dealers',
                                            'action' => 'admin_edit',
                                            $dealer['Dealer']['id']));
@@ -14,28 +14,28 @@
     <fieldset class="module">
     <div id="left-column">
         <table>
-        <? foreach($dealer['Dealer'] as $key => $value): ?>
+        <?php foreach($dealer['Dealer'] as $key => $value): ?>
             <tr>
-                <td class="key"><? echo $key ?></td>
-                <td class="value"><? echo $value ?></td>
+                <td class="key"><?php echo $key ?></td>
+                <td class="value"><?php echo $value ?></td>
             </tr>
-        <? endforeach; ?>
+        <?php endforeach; ?>
         </table>
-        <? print_r($dealer) ?>
+        <?php print_r($dealer) ?>
     </div>
 
     <div id="right-column">
 
         <h2>Orders</h2>
         <table>
-            <? foreach($orders as $order):?>
+            <?php foreach($orders as $order):?>
             <tr>
-                <td><? echo $order['Order']['id'] ?></td>
-                <td><? echo $order['Order']['id'] ?></td>
-                <td><? echo $order['Order']['id'] ?></td>
-                <td><? echo $order['Order']['id'] ?></td>
+                <td><?php echo $order['Order']['id'] ?></td>
+                <td><?php echo $order['Order']['id'] ?></td>
+                <td><?php echo $order['Order']['id'] ?></td>
+                <td><?php echo $order['Order']['id'] ?></td>
             </tr>
-            <? endforeach; ?>
+            <?php endforeach; ?>
         </table>
     </div>
 

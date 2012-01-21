@@ -14,7 +14,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>SMS Canada &mdash;<? echo $title_for_layout ?> </title>
+<title>SMS Canada &mdash;<?php echo $title_for_layout ?> </title>
 <?
     echo $this->Html->script('jquery.min');
     echo $this->Html->script('jquery.formalize');
@@ -40,10 +40,10 @@
                 </li>
                 <!--<li class="nav-last"><span class="olive">Login</span> </li>-->
                 <?php echo $this->element('login_logout'); ?>
-                <li><? echo $this->Html->link($next_language, '/languages/toggle'); ?></li>
+                <li><?php echo $this->Html->link($next_language, '/languages/toggle'); ?></li>
                 
 
-                <li><? echo $this->Html->link(__('Contact'), array('controller' => 'contact', ) ); ?></li>
+                <li><?php echo $this->Html->link(__('Contact'), array('controller' => 'contact', ) ); ?></li>
                 <li><a href="#">dealers</a></li>
                 <li><a href="#">parts charts</a></li>
                 <li><a href="/smscanada/index.php/products">Products</a></li>
@@ -67,7 +67,7 @@
         </div>
         <div class="grid_5">
             <p>SMSCanada - header 380</p>
-            <p>lang: <? echo $this->Session->read('lang'); ?></p>
+            <p>lang: <?php echo $this->Session->read('lang'); ?></p>
         </div>
         <!-- end .grid_5 -->
 
@@ -85,7 +85,7 @@
                 <?php #$session->flash(); ?>
                 700 - main content
                 <div id="content">
-                    <? echo $content_for_layout; ?>
+                    <?php echo $content_for_layout; ?>
                 </div>
             </p>
         </div>

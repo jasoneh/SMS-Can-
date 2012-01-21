@@ -18,7 +18,7 @@ dealers home
 
 <h2>Cart</h2>
     <p>Cart contents</p>
-    <pre><? print_r($cart_items)?></pre>
+    <pre><?php print_r($cart_items)?></pre>
     <table>
         <tr>
             <th>#</th>
@@ -26,15 +26,15 @@ dealers home
             <th>Price</th>
             <th>Remove</th>
         </tr>
-    <? foreach($cart_items as $item): ?>
+    <?php foreach($cart_items as $item): ?>
        <tr>
-           <td><? echo $this->Html->link($item['Product']['parts_number'],
+           <td><?php echo $this->Html->link($item['Product']['parts_number'],
                                          array('controller' => 'carts', 'action' => 'delete', $item['Product']['id'])); ?></td>
-           <td><? echo $item['Product']['name'] ?></td>
-           <td><? echo $item['Product']['price'] ?></td>
-           <td><? echo $this->Html->link('x', array('controller' => 'carts', 'action' => 'remove', $item['Product']['id'])); ?></td>
+           <td><?php echo $item['Product']['name'] ?></td>
+           <td><?php echo $item['Product']['price'] ?></td>
+           <td><?php echo $this->Html->link('x', array('controller' => 'carts', 'action' => 'remove', $item['Product']['id'])); ?></td>
        </tr>
-    <? endforeach; ?>
+    <?php endforeach; ?>
 
 
     </table>

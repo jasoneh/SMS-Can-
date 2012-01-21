@@ -6,7 +6,7 @@
     $count_and_sum = $this->requestAction('carts/count_and_sum');
     if(!empty($count_and_sum)):
 ?>
-        <p><? echo $count_and_sum['nof_items'] . " items: $" . $count_and_sum['sum'] ?></p>
+        <p><?php echo $count_and_sum['nof_items'] . " items: $" . $count_and_sum['sum'] ?></p>
 <?
     endif;
 ?>

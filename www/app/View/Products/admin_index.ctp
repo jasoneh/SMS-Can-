@@ -51,7 +51,7 @@ foreach ($products as $product):
 		<td>
 			<?php echo $product['Product']['description']; ?>
 		</td>
-        <? /*
+        <?php /*
 		<td>
 			<?php echo $product['Product']['description_french']; ?>
 		</td> */?>

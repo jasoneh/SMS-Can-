@@ -6,17 +6,17 @@
             <h2><a href="" class="section">Content</a></h2>
 
                 <div class="row">
-                    <? echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'admin_index' ) ); ?>
+                    <?php echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'admin_index' ) ); ?>
                     <ul class="actions">
                         <li class="add-link">
-                            <? echo $this->Html->link('Add', array('controller' => 'products', 'action' => 'admin_add' ) ); ?>
+                            <?php echo $this->Html->link('Add', array('controller' => 'products', 'action' => 'admin_add' ) ); ?>
                         </li>
                         <li class="change-link"> <a href="#">Change</a></li>
                     </ul>
                </div>
 
                 <div class="row">
-                    <? echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'admin_index' ) ); ?>
+                    <?php echo $this->Html->link('Categories', array('controller' => 'categories', 'action' => 'admin_index' ) ); ?>
 
                     <ul class="actions">
                         <li class="add-link"><a href="auth/user/add/">Add</a></li>
@@ -37,7 +37,7 @@
             <h2><a href="sites/" class="section">Dealers</a></h2>
 
                 <div class="row">
-                    <? echo $this->Html->link('Accounts', array('controller' => 'dealers', 'action' => 'admin_index'));  ?>
+                    <?php echo $this->Html->link('Accounts', array('controller' => 'dealers', 'action' => 'admin_index'));  ?>
                     <ul class="actions">
                         <li class="add-link"><a href="sites/site/add/">Add</a></li>
                         <li class="change-link"> <a href="sites/site/">Change</a></li>

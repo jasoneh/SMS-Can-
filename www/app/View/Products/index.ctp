@@ -12,17 +12,17 @@
 	<?php foreach ($data as $key => $value): ?>
 		<li class="item">
 			<div class="item-link">
-                <? echo $this->Html->image('product_thumbnail.png'); ?>
+                <?php echo $this->Html->image('product_thumbnail.png'); ?>
             </div>
             <div class="item-thumbnail">
-                <? echo $this->Html->link( $value['Product']['name'],
+                <?php echo $this->Html->link( $value['Product']['name'],
                                            array('controller' => 'products', 'action' => 'view', $value['Product']['id']),
                                            array('escape' => false)); ?>
             </div>
 
             <div class="item-purchase">
-                <h4>100<? #echo $value['Product']['price'] ?></h4>
-                <? /*
+                <h4>100<?php #echo $value['Product']['price'] ?></h4>
+                <?php /*
                     echo $this->Html->link( 'Add to cart',
                                            array('controller' => 'carts', 'action' => 'add', $value['Product']['id']),
                                            array('class' => 'green awesome small'),

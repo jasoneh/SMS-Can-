@@ -1,14 +1,14 @@
-<h1>View product - <? echo $product['Product']['parts_number'] . '' . $product['Product']['name'] ; ?></h1>
+<h1>View product - <?php echo $product['Product']['parts_number'] . '' . $product['Product']['name'] ; ?></h1>
 <ul class="tools">
-    <li><? echo $this->Html->link(__('Edit product', true), array('controller' => 'products', 'action' => 'admin_edit', $product['Product']['id']));; #<a class="add-handler focus" href="#">Edit product</a> ?></li>
+    <li><?php echo $this->Html->link(__('Edit product', true), array('controller' => 'products', 'action' => 'admin_edit', $product['Product']['id']));; #<a class="add-handler focus" href="#">Edit product</a> ?></li>
 </ul>
 <table>
-<? foreach($product['Product'] as $key => $value): ?>
+<?php foreach($product['Product'] as $key => $value): ?>
     <tr>
-        <td class="key"><? echo $key ?></td>
-        <td class="value"><? echo $value ?></td>
+        <td class="key"><?php echo $key ?></td>
+        <td class="value"><?php echo $value ?></td>
     </tr>
-<? endforeach; ?>
+<?php endforeach; ?>
 </table>
 
 <?

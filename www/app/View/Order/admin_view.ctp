@@ -1,15 +1,15 @@
-<h1>View order - <? echo $order['Order']['id']?></h1>
+<h1>View order - <?php echo $order['Order']['id']?></h1>
 <ul class="tools">
-    <li><? echo $this->Html->link(__('Edit order', true), array('controller' => 'orders', 'action' => 'admin_edit', $order['Order']['id']));?></li>
+    <li><?php echo $this->Html->link(__('Edit order', true), array('controller' => 'orders', 'action' => 'admin_edit', $order['Order']['id']));?></li>
 </ul>
 <table>
 
-<? foreach($orders['Order'] as $key => $value): ?>
+<?php foreach($orders['Order'] as $key => $value): ?>
     <tr>
-        <td class="key"><? echo $key ?></td>
-        <td class="value"><? echo $value ?></td>
+        <td class="key"><?php echo $key ?></td>
+        <td class="value"><?php echo $value ?></td>
     </tr>
-<? endforeach; ?>
+<?php endforeach; ?>
 </table>
 
 <?

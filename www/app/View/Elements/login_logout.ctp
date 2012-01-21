@@ -7,4 +7,4 @@
     endif;
 ?>
 
-<li><? echo $this->Html->link($action_name , array('controller' => 'users' , 'action' => $action_name)); ?></li>
+<li><?php echo $this->Html->link($action_name , array('controller' => 'users' , 'action' => $action_name)); ?></li>

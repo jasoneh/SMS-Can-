@@ -31,16 +31,16 @@
 	    <h2><?php  __('Product');?></h2>
 
 	    <!--<img src="localhost:8888/smscanada/media/products/dummy_product.jpg" />-->
-        <? echo $this->Html->image('dummy_product.jpg'); ?>
+        <?php echo $this->Html->image('dummy_product.jpg'); ?>
 
-        <h1><? echo $name?> </h1>
+        <h1><?php echo $name?> </h1>
         <p>
         <!-- Category breadcrumbs -->
-        <p><a href="">Categories</a> &raquo; <? echo $product['Category']['name'];?></p>
+        <p><a href="">Categories</a> &raquo; <?php echo $product['Category']['name'];?></p>
         <?php echo $this->Html->link("List products of this category",
             array('controller' => 'products', 'action' => 'category', $product['Category']['id'])); ?>
         </p>
-        <p><? echo $description; ?></p>
+        <p><?php echo $description; ?></p>
 	
 	    <p>Price: <?php echo $product['Product']['price']; ?></p>
 	

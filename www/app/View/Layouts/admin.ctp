@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us" >
 
 <head>
-    <title><? echo $title_for_layout ?></title>
+    <title><?php echo $title_for_layout ?></title>
 
         <meta name="robots" content="NONE,NOARCHIVE" />
 
@@ -165,7 +165,7 @@
                     Change password</a></li>
                     <!-- Logout -->
 
-                        <li><? echo $this->Html->link(
+                        <li><?php echo $this->Html->link(
                             __('Logout'),
                             array('controller' => 'users', 'action' => 'logout'))
                             ?>

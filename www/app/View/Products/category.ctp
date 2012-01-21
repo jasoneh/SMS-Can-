@@ -6,10 +6,10 @@
 <div id="main">
     <div class="products view">
     <?php if(!empty($category_name)): ?>
-        <h2><? echo $category_name ?></h2>
+        <h2><?php echo $category_name ?></h2>
     <?php endif; ?>
         
-        <? echo $this->element('product_paginator'); ?>
+        <?php echo $this->element('product_paginator'); ?>
         
         <ul class="product-list">
         <?
@@ -38,13 +38,13 @@
                             array('class' => 'item-link')
                         );
                     ?>
-                    <p class="item-description"><? echo $value['Product']['description']?></p>
+                    <p class="item-description"><?php echo $value['Product']['description']?></p>
                 </div>
 
-                <? /* Price box */ ?>
+                <?php /* Price box */ ?>
                 <div class="item-purchase">
-                    <? if(!$price) $price = "Not available" ?>
-                    <p class="item-price">$ <? echo $price?> </p>
+                    <?php if(!$price) $price = "Not available" ?>
+                    <p class="item-price">$ <?php echo $price?> </p>
 
                     <?php echo $this->Form->create('Carts', array('type' => 'post', 'action' => '/add/'));?>
 
@@ -56,7 +56,7 @@
                     <?php echo $this->Form->end(__('Buy'));?>
 
                     <!--<a href="" class="awesome green">Add to cart</a>-->
-                    <? /*echo $this->Html->link(
+                    <?php /*echo $this->Html->link(
                             'Add to cart',
                             array('controller' => 'cart', 'action' => 'add', $value['Product']['id']),
                             array('class' => 'awesome green')
@@ -69,7 +69,7 @@
 
         </ul>
 
-        <? echo $this->element('product_paginator'); ?>
+        <?php echo $this->element('product_paginator'); ?>
         <?php
         /*
             echo $paginator->counter(array(
@@ -93,7 +93,7 @@
 	    <p><?php echo $product['Product']['name'] ?></p>
 	    <p><?php echo $product['Product']['description'] ?></p>
 	<hr/>
-    <? endif ?>
+    <?php endif ?>
      */?>
 
 
