@@ -1,4 +1,4 @@
-<?
+<?php
     /**
      * Display name for the toggle language link in the head menu
      */
@@ -15,7 +15,7 @@
 <head>
 <meta charset="utf-8" />
 <title>SMS Canada &mdash;<?php echo $title_for_layout ?> </title>
-<?
+<?php
     echo $this->Html->script('jquery.min');
     echo $this->Html->script('jquery.formalize');
     echo $this->Html->css('960/reset');

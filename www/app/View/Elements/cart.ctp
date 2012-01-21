@@ -7,6 +7,6 @@
     if(!empty($count_and_sum)):
 ?>
         <p><?php echo $count_and_sum['nof_items'] . " items: $" . $count_and_sum['sum'] ?></p>
-<?
+<?php
     endif;
 ?>
