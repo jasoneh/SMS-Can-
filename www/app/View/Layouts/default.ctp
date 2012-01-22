@@ -41,8 +41,6 @@
                 <!--<li class="nav-last"><span class="olive">Login</span> </li>-->
                 <?php echo $this->element('login_logout'); ?>
                 <li><?php echo $this->Html->link($next_language, '/languages/toggle'); ?></li>
-                
-
                 <li><?php echo $this->Html->link(__('Contact'), array('controller' => 'contact', ) ); ?></li>
                 <li><a href="#">dealers</a></li>
                 <li><a href="#">parts charts</a></li>
