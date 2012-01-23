@@ -1,4 +1,4 @@
-<?
+<?php
 /**
  * Handles all admin logic for Categories.
  * Extends Controller as any Controller and
