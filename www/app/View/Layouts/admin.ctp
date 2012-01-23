@@ -1,15 +1,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us" >
 
+<?php
+    $PAGE_ROOT = "";
+?>
 <head>
     <title><?php echo $title_for_layout ?></title>
 
         <meta name="robots" content="NONE,NOARCHIVE" />
 
     <!-- STYLESHEETS -->
-        <link href="/smscanada/grappelli/css/base.css" rel="stylesheet" type="text/css" />
-        <link href="/smscanada/grappelli/jquery/ui/css/custom-theme/jquery-ui-1.8.custom.css" rel="stylesheet" type="text/css" media="screen" title="no title" charset="utf-8" />
-        <link href="/smscanada/grappelli/css/jquery-ui-grappelli-extensions.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo $PAGE_ROOT?>/grappelli/css/base.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo $PAGE_ROOT?>/jquery/ui/css/custom-theme/jquery-ui-1.8.custom.css" rel="stylesheet" type="text/css" media="screen" title="no title" charset="utf-8" />
+        <link href="<?php echo $PAGE_ROOT?>/grappelli/css/jquery-ui-grappelli-extensions.css" rel="stylesheet" type="text/css" />
     <!-- EXTRASTYLES -->
 
     <!-- JAVASCRIPTS -->
@@ -25,27 +28,27 @@
                 DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S";
         </script>
         <!-- jQuery, jQuery-UI -->
-        <script src="/smscanada/grappelli/jquery/jquery-1.6.2.min.js" type="text/javascript"></script>
-        <script src="/smscanada/grappelli/jquery/ui/js/jquery-ui-1.8.15.custom.min.js" type="text/javascript"></script>
+        <script src="<?php echo $PAGE_ROOT?>/grappelli/jquery/jquery-1.6.2.min.js" type="text/javascript"></script>
+        <script src="<?php echo $PAGE_ROOT?>/grappelli/jquery/ui/js/jquery-ui-1.8.15.custom.min.js" type="text/javascript"></script>
         <!-- Grappelli Main JS -->
 
-        <script src="/smscanada/grappelli/js/grappelli/grappelli.js" type="text/javascript"></script>
+        <script src="<?php echo $PAGE_ROOT?>/grappelli/js/grappelli/grappelli.js" type="text/javascript"></script>
         <!-- Grappelli jQuery Plugins, Widgets -->
-        <script src="/smscanada/grappelli/js/grappelli/jquery.grp_collapsible.js" type="text/javascript"></script>
-        <script src="/smscanada/grappelli/js/grappelli/jquery.grp_collapsible_group.js" type="text/javascript"></script>
-        <script src="/smscanada/grappelli/js/grappelli/jquery.grp_timepicker.js" type="text/javascript"></script>
-        <script src="/smscanada/grappelli/js/grappelli/jquery.grp_related_fk.js" type="text/javascript"></script>
+        <script src="<?php echo $PAGE_ROOT?>/grappelli/js/grappelli/jquery.grp_collapsible.js" type="text/javascript"></script>
+        <script src="<?php echo $PAGE_ROOT?>/grappelli/js/grappelli/jquery.grp_collapsible_group.js" type="text/javascript"></script>
+        <script src="<?php echo $PAGE_ROOT?>/grappelli/js/grappelli/jquery.grp_timepicker.js" type="text/javascript"></script>
+        <script src="<?php echo $PAGE_ROOT?>/grappelli/js/grappelli/jquery.grp_related_fk.js" type="text/javascript"></script>
 
-        <script src="/smscanada/grappelli/js/grappelli/jquery.grp_related_m2m.js" type="text/javascript"></script>
-        <script src="/smscanada/grappelli/js/grappelli/jquery.grp_related_generic.js" type="text/javascript"></script>
-        <script src="/smscanada/grappelli/js/grappelli/jquery.grp_autocomplete_fk.js" type="text/javascript"></script>
-        <script src="/smscanada/grappelli/js/grappelli/jquery.grp_autocomplete_m2m.js" type="text/javascript"></script>
-        <script src="/smscanada/grappelli/js/grappelli/jquery.grp_autocomplete_generic.js" type="text/javascript"></script>
+        <script src="<?php echo $PAGE_ROOT?>/grappelli/js/grappelli/jquery.grp_related_m2m.js" type="text/javascript"></script>
+        <script src="<?php echo $PAGE_ROOT?>/grappelli/js/grappelli/jquery.grp_related_generic.js" type="text/javascript"></script>
+        <script src="<?php echo $PAGE_ROOT?>/grappelli/js/grappelli/jquery.grp_autocomplete_fk.js" type="text/javascript"></script>
+        <script src="<?php echo $PAGE_ROOT?>/grappelli/js/grappelli/jquery.grp_autocomplete_m2m.js" type="text/javascript"></script>
+        <script src="<?php echo $PAGE_ROOT?>/grappelli/js/grappelli/jquery.grp_autocomplete_generic.js" type="text/javascript"></script>
 
 
     <script type="text/javascript" src="/admin/jsi18n/"></script>
 
-    <script src="/smscanada/grappelli/js/grappelli/jquery.grp_inline.js" type="text/javascript"></script>
+    <script src="<?php echo $PAGE_ROOT?>/grappelli/js/grappelli/jquery.grp_inline.js" type="text/javascript"></script>
     <script type="text/javascript" charset="utf-8">
         (function($) {
             $(document).ready(function() {
@@ -105,11 +108,11 @@
             });
         })(django.jQuery);
     </script>
-    <script type="text/javascript" src="/smscanada/grappelli/js/core.js"></script>
-<script type="text/javascript" src="/smscanada/grappelli/js/admin/RelatedObjectLookups.js"></script>
-<script type="text/javascript" src="/smscanada/grappelli/js/jquery.min.js"></script>
-<script type="text/javascript" src="/smscanada/grappelli/js/jquery.init.js"></script>
-<script type="text/javascript" src="/smscanada/grappelli/js/actions.min.js"></script>
+    <script type="text/javascript" src="<?php echo $PAGE_ROOT?>/grappelli/js/core.js"></script>
+<script type="text/javascript" src="<?php echo $PAGE_ROOT?>/grappelli/js/admin/RelatedObjectLookups.js"></script>
+<script type="text/javascript" src="<?php echo $PAGE_ROOT?>/grappelli/js/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo $PAGE_ROOT?>/grappelli/js/jquery.init.js"></script>
+<script type="text/javascript" src="<?php echo $PAGE_ROOT?>/grappelli/js/actions.min.js"></script>
 
     <!-- EXTRAHEAD -->
 
