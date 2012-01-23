@@ -188,7 +188,7 @@ class CartsController extends AdminCartsController {
 
         $items = $n_items;
         $n_items = null;
-        echo "<pre>"; echo "<br/>"; print_r($items); echo "</pre>";
+        #echo "<pre>"; echo "<br/>"; print_r($items); echo "</pre>";
         $this->set(compact('items'));
 
     }

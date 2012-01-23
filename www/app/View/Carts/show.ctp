@@ -32,5 +32,5 @@
 <p><?php echo $items['Meta']['total_quantity'] ?> items at $ <?php echo $items['Meta']['total_cost'] ?></p>
 
 <?php
-    echo $this->Html->link('Proceed to checkout', array('controller' => 'carts', 'action' => 'checkout'), array('class' => 'small awesome orange'));
+    echo $this->Html->link('Proceed to checkout', array('controller' => 'carts', 'action' => 'checkout'), array('class' => 'small awesome green'));
 ?>

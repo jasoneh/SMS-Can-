@@ -10,5 +10,5 @@
 <?php
     endif;
 ?>
-<?php echo $this->Html->link('Checkout', array('controller' => 'carts', 'action' => 'checkout'));?>
-<?php echo $this->Html->link('Show cart', array('controller' => 'carts', 'action' => 'show'));?>
+<?php echo $this->Html->link('Checkout', array('controller' => 'carts', 'action' => 'checkout'), array('class' => 'small awesome green'));?>
+<?php echo $this->Html->link('Show cart', array('controller' => 'carts', 'action' => 'show'), array('class' => 'small awesome orange'));?>
