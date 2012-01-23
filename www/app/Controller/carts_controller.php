@@ -19,7 +19,7 @@ class CartsController extends AdminCartsController {
 	var $helpers = array('Html', 'Session', );
     var $components = array('Auth', 'Session',);
     var $uses = array('Auth', 'Product', 'Cart', );
-	var $scaffold;
+	#var $scaffold;
 
 	// Allow following actions to non logged in users
     function beforeFilter() {
@@ -147,5 +147,61 @@ class CartsController extends AdminCartsController {
         }
 
         return false;
+    }
+
+    /**
+     * Show the contents of a customer cart
+     * @return void
+     */
+    public function show(){
+
+        $user_id = AuthComponent::user('id');
+        $items = $this->Cart->find('all', array('conditions' => array(
+                                                    'user_id' => $user_id),
+                                                'fields' => array(
+                                                    'id', 'user_id', 'qty',
+                                                    'Product.id',
+                                                    'Product.parts_number',
+                                                    'Product.name', 'Product.description',
+                                                    'Product.price'
+                                                )
+                                          ));
+
+        $total_quantity = 0;
+        $total_cost = 0;
+        $n_items = array('Items' => array(), 'Meta' => array());   #this holds the final data
+        foreach($items as $key => $item){
+            $row_cost = $item['Product']['price'] * $item['Cart']['qty'];
+            $total_cost+=$row_cost;
+
+            # copy data to new array
+            $n_items['Items'] += array($key => $item);
+            # Add the cost for this item to the array
+            $n_items['Items'][$key] += array('Meta' => array(
+                'cost' => $row_cost
+            ));
+            $total_quantity += $item['Cart']['qty'];
+        }
+
+        $meta = array('total_cost' => $total_cost, 'total_quantity' => $total_quantity);
+        $n_items['Meta'] = $meta;
+
+        $items = $n_items;
+        $n_items = null;
+        echo "<pre>"; echo "<br/>"; print_r($items); echo "</pre>";
+        $this->set(compact('items'));
+
+    }
+
+    public function deleterow($id=null){
+        echo "deleting a single row from the cart";
+
+    }
+    /**
+     * Customer checks out ordered goods
+     * @return void
+     */
+    public function checkout(){
+
     }
 }
