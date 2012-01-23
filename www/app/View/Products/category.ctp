@@ -70,31 +70,9 @@
         </ul>
 
         <?php echo $this->element('product_paginator'); ?>
-        <?php
-        /*
-            echo $paginator->counter(array(
-                'format' => __('Page %page% of %pages%. Showing %start% to %end% of %count% products in category', true)
-            ));
-        */
-        ?>
-	</div>
-	<div class="paging">
-        <?php
-		/*<?php echo $paginator->prev('<< '.__('previous', true), array(), null, array('class'=>'disabled'));*/?><!--
-		| <?php /*echo $paginator->numbers();*/?>
-		--><?php /*echo $paginator->next(__('next', true).' >>', array(), null, array('class' => 'disabled'));*/
-        ?>
+
 	</div>
 
-    <?php
-     /*
-      if(isset($product)): ?>
-        <h4><?php echo $product['Product']['parts_number'] ?></h4>
-	    <p><?php echo $product['Product']['name'] ?></p>
-	    <p><?php echo $product['Product']['description'] ?></p>
-	<hr/>
-    <?php endif ?>
-     */?>
 
 
 </div>
