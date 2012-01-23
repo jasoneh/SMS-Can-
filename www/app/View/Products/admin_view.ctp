@@ -11,6 +11,6 @@
 <?php endforeach; ?>
 </table>
 
-<?
+<?php
     print_r($product);
 ?>

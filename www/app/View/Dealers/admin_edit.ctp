@@ -12,7 +12,7 @@
     ?>
         <label for="dealer_type_id">Dealer Type</label>
   <?php echo $this->Form->select('dealer_type_id', $this->request->data['DealerType']); ?>
-  <?
+  <?php
 		#echo $this->Form->input('dealer_type_id');
 		echo $this->Form->input('organisation');
 		echo $this->Form->input('firstname');
@@ -39,7 +39,7 @@
 	</ul>
 </div>
 
-<?
+<?php
 /*
 <div class="dealers form">
 <?php echo $form->create('Dealer');?>

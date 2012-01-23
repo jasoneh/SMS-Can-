@@ -226,9 +226,7 @@
 
     <div class="container-flexible">
         <div class="form-container">
-            <?
 
-?>
             <form enctype="multipart/form-data" action="" method="post" id="site_form"><div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='24b1b2ae2633c06d20fbe64ca8f2b075' /></div>
                 <div>
                     <!-- Popup Hidden Field -->
@@ -241,7 +239,7 @@
 
 
                     <!-- Fieldsets -->
-<?
+<?php
                     echo $content_for_layout;
 /*
                         <fieldset class="module "><div class="row cells-1 domain "><div><div class="column span-4"><label for="id_domain" class="required">Domain name:</label></div><div class="column span-flexible"><input id="id_domain" type="text" class="vTextField" name="domain" maxlength="100" /></div></div></div><div class="row cells-1 name "><div><div class="column span-4"><label for="id_name" class="required">Display name:</label></div><div class="column span-flexible"><input id="id_name" type="text" class="vTextField" name="name" maxlength="50" /></div></div></div></fieldset>

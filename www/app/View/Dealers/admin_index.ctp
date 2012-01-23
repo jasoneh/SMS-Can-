@@ -1,4 +1,4 @@
-<?
+<?php
 /**
  * Lists all dealers in the system
 */

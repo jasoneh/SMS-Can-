@@ -5,7 +5,7 @@
 <?php echo $this->Form->create('Dealer', array('action' => 'edit'));?>
 	<fieldset class="module">
  		<legend><?php __('Edit Dealer');?></legend>
-    <?
+    <?php
         echo $this->Form->select('user_id', $users);
         echo $this->Html->link('--- [ Add user ] ', array('controller' => 'users', 'action' => 'admin_add'));
 
@@ -38,7 +38,7 @@
 	</ul>
 </div>
 
-<?
+<?php
 /*
 <div class="dealers form">
 <?php echo $form->create('Dealer');?>

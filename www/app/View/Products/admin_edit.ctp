@@ -1,5 +1,5 @@
 <h1>Edit product</h1>
-<?
+<?php
     # short for not having to type all of the css class
     $textclass = array('class' => 'vTextField');
 ?>

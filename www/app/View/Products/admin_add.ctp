@@ -1,5 +1,5 @@
 <h1>Add product</h1>
-<?
+<?php
 #echo "categories"; print_r($categories);
 ?>
 <div class="products form">
