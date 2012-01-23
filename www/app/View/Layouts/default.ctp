@@ -55,9 +55,12 @@
 
     <div class="container_12 main box_shadow">
         <div class="grid_12">
+            <!-- this header takes up all the width -->
+            <!--
             <p>
               SMSCanada -header 940
             </p>
+            -->
         </div>
         <!-- end .grid_12 -->
         <div class="clear"></div>
@@ -74,6 +77,8 @@
         <div class="grid_3">
             <p>
                 <?php echo $this->element('cart'); ?>
+            </p>
+            <p>
 <!--                220 sidebar categories-->
                 <?php echo $this->element('categories'); ?>
           </p>
