@@ -42,9 +42,10 @@
                 <?php echo $this->element('login_logout'); ?>
                 <li><?php echo $this->Html->link($next_language, '/languages/toggle'); ?></li>
                 <li><?php echo $this->Html->link(__('Contact'), array('controller' => 'contact', ) ); ?></li>
-                <li><a href="#">dealers</a></li>
+                <li><?php echo $this->Html->link(__('Dealers'), array('controller' => 'dealers', 'action' => 'index' ) ); ?></li>
+
                 <li><a href="#">parts charts</a></li>
-                <li><a href="/smscanada/index.php/products">Products</a></li>
+                <li><?php echo $this->Html->link(__('Products'), array('controller' => 'products', 'action' => 'index' ) ); ?></li>
             </ul>
         </div>
     </nav>
@@ -61,11 +62,11 @@
         <!-- end .grid_12 -->
         <div class="clear"></div>
         <div class="grid_7">
-            grid_7
+            <!-- grid_7 -->
         </div>
         <div class="grid_5">
-            <p>SMSCanada - header 380</p>
-            <p>lang: <?php echo $this->Session->read('lang'); ?></p>
+            <?php /*<p>SMSCanada - header 380</p>
+            <p>lang: <?php echo $this->Session->read('lang'); ?></p> */ ?>
         </div>
         <!-- end .grid_5 -->
 
@@ -73,7 +74,7 @@
         <div class="grid_3">
             <p>
                 <?php echo $this->element('cart'); ?>
-                220 sidebar categories
+<!--                220 sidebar categories-->
                 <?php echo $this->element('categories'); ?>
           </p>
         </div>
@@ -81,7 +82,7 @@
         <div class="grid_9">
             <p>
                 <?php #$session->flash(); ?>
-                700 - main content
+                <?php #700 - main content ?>
                 <div id="content">
                     <?php echo $content_for_layout; ?>
                 </div>

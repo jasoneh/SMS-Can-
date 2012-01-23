@@ -2,7 +2,7 @@
 require_once('dealers_admin_controller.php');
 class DealersController extends AdminDealersController {
 
-    var $uses = array('Product', );
+    var $uses = array('Product', 'Cart',);
     #var $uses = array('Order', 'Dealers');
     function beforeFilter(){
         parent::beforeFilter();
@@ -17,7 +17,11 @@ class DealersController extends AdminDealersController {
         $user_id = AuthComponent::user('id');
         #$cart_contents = $this->Carts->findByUserId('all');
         $new_products = $this->Product->find('all', array('conditions' => array('new' => true)));
-        $new_products = $this->Product->find('all', array('conditions' => array('new' => true)));
+        # TODO: We should paginate this result
+        $new_products = $this->Product->find('all', array(
+                                                         'conditions' => array('new' => true),
+                                                         'limit' => 30
+                                                    ));
         $cart_items = $this->Cart->find('all', array( 'conditions' => array( 'user_id' => $user_id), ));
         $this->set(compact('cart_items', 'new_products'));
 	}

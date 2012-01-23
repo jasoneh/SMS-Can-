@@ -1,20 +1,41 @@
-dealers home
+<!-- #new products -->
+    <table class="new-products">
+        <tr>
+            <th>Parts Number</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Manufacturer</th>
+            <th>Added</th>
+            <th>Price</th>
+        </tr>
+        <?php foreach ($new_products as $product): ?>
+        <tr>
+            <td><?php echo $product['Product']['parts_number'] ?></td>
+            <td><?php echo $product['Product']['name'] ?></td>
+            <td><?php echo $product['Category']['name'] ?></td>
+            <td><?php echo $product['Manufacturer']['name'] ?></td>
+            <td><?php echo $product['Product']['created'] ?></td>
+            <td><?php echo $product['Product']['price'] ?></td>
 
-<h3>New products </h3>
-    <ul>
-        <li>product</li><li>product</li><li>product</li><li>product</li><li>product</li>
-    </ul>
+        </tr>
+        <?php endforeach; ?>
+    </table>
 
-<hr/>
-
-<h2>Order history</h2>
-
-    <ul>
-        <li>Order 1</li>
-        <li>Order 2</li>
-        <li>Order 3</li>
-    </ul>
-<hr/>
+<!-- # order history -->
+    <table class="order-history">
+        <tr>
+            <th>Order Number</th>
+            <th>Date</th>
+            <th>Nof articles</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>#101010</td>
+            <td>2012-01-01</td>
+            <td>103</td>
+            <td>$ 1000</td>
+        </tr>
+    </table>
 
 <h2>Cart</h2>
     <p>Cart contents</p>

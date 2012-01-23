@@ -12,7 +12,7 @@
         <?php echo $this->element('product_paginator'); ?>
         
         <ul class="product-list">
-        <?
+        <?php
             foreach ($products as $key => $value):
 
                 # Set price depending on dealer type
