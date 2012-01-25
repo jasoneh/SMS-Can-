@@ -13,7 +13,7 @@
         
         <ul class="product-list">
         <?php
-            foreach ($products as $key => $value):
+            foreach ($products as $key => $product):
 
                 # Set price depending on dealer type
                 # default to house dealers price
@@ -25,44 +25,23 @@
                     $price = $value['Product']['price_house'];
                 }
                 */
-                $price = $value['Product']['price'];
+
         ?>
             <li class="item">
 
                 <div class="item-box">
-                    <img src="/smscanada/app/webroot/media/products/product_thumbnail.png" class="item-thumbnail"/>
+                    <img src="http://i00.i.aliimg.com/photo/v0/487636730/High_tempreture_resistance_Fiberglass_Sewing_machine_Thread.jpg" class="item-thumbnail"/>
 
                     <?php echo $this->Html->link(
-                            $value['Product']['name'],
-                            array('controller' => 'products', 'action' => 'view', $value['Product']['id']),
+                            $product['Product']['name'],
+                            array('controller' => 'products', 'action' => 'view', $product['Product']['id']),
                             array('class' => 'item-link')
                         );
                     ?>
-                    <p class="item-description"><?php echo $value['Product']['description']?></p>
+                    <p class="item-description"><?php echo $product['Product']['description']?></p>
                 </div>
 
-                <?php /* Price box */ ?>
-                <div class="item-purchase">
-                    <?php if(!$price) $price = "Not available" ?>
-                    <p class="item-price">$ <?php echo $price?> </p>
-
-                    <?php echo $this->Form->create('Carts', array('type' => 'post', 'action' => '/add/'));?>
-
-                        <?php
-                            echo $this->Form->input('qty', array('class' => 'quantity-input', 'label' => 'Quantity', 'value' => 1));
-                            echo $this->Form->hidden('product_id', array('value' => $value['Product']['id']));
-                        ?>
-
-                    <?php echo $this->Form->end(__('Buy'));?>
-
-                    <!--<a href="" class="awesome green">Add to cart</a>-->
-                    <?php /*echo $this->Html->link(
-                            'Add to cart',
-                            array('controller' => 'cart', 'action' => 'add', $value['Product']['id']),
-                            array('class' => 'awesome green')
-                        )
-                    */?>
-                </div>
+                <p><?php echo $this->Cartform->makeCartForm($product); ?></p>
                 <div style="clear: both"></div>
             </li>
         <?php endforeach; ?>

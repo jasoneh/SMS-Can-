@@ -30,74 +30,41 @@
 	<div class="products view">
 	    <h2><?php  __('Product');?></h2>
 
+        <!-- Category breadcrumbs -->
+        <p><?php echo $this->Html->link("Category",
+                    array('controller' => 'products', 'action' => 'category')); ?>
+        &raquo; <?php echo $product['Category']['name'];?></p>
+
 	    <!--<img src="localhost:8888/smscanada/media/products/dummy_product.jpg" />-->
-        <?php echo $this->Html->image('dummy_product.jpg'); ?>
+        <?php #echo $this->Html->image('dummy_product.jpg'); ?>
+        <img src="http://smscanada.com/prodimg/Pd/386001.jpg"/>
 
         <h1><?php echo $name?> </h1>
-        <p>
-        <!-- Category breadcrumbs -->
-        <p><a href="">Categories</a> &raquo; <?php echo $product['Category']['name'];?></p>
-        <?php echo $this->Html->link("List products of this category",
-            array('controller' => 'products', 'action' => 'category', $product['Category']['id'])); ?>
-        </p>
+
         <p><?php echo $description; ?></p>
 	
-	    <p>Price: <?php echo $product['Product']['price']; ?></p>
-	
+
+	    <p><?php echo $this->Cartform->makeCartForm($product); ?></p>
+        <p><?php echo $this->Html->link("List more products of this category",
+            array('controller' => 'products', 'action' => 'category', $product['Category']['id'])); ?>
+        </p>
+
         <?php
             // Loop over all images belonging to this Product
+        /*
             foreach ($product['Image'] as $image){
                 echo $image['filename'] . "<br/>";
                 echo $image['caption'] . "<br/>";
                 echo "<hr/>";
             }
-
+        */
         ?>
 
-
+    </div>
     <hr/>
-    <p>Below is for development only</p>
-
-
+    <p>Below is to show the available details for a product</p>
 <?php echo $this->Html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?>
-				
-<?php 	echo "<pre>"; print_r($product); echo "</pre>";?>
-
-	</div>
-
-	<div class="related">
-		<h3><?php __('Related Images');?></h3>
-		<?php if (!empty($product['Image'])):?>
-		<table cellpadding = "0" cellspacing = "0">
-		<tr>
-			<th><?php __('Id'); ?></th>
-			<th><?php __('Product Id'); ?></th>
-			<th><?php __('Filename'); ?></th>
-			<th><?php __('Caption'); ?></th>
-			<th class="actions"><?php __('Actions');?></th>
-		</tr>
-		<?php
-			$i = 0;
-			foreach ($product['Image'] as $image):
-				$class = null;
-				if ($i++ % 2 == 0) {
-					$class = ' class="altrow"';
-				}
-			?>
-			<tr<?php echo $class;?>>
-				<td><?php echo $image['id'];?></td>
-				<td><?php echo $image['product_id'];?></td>
-				<td><?php echo $image['filename'];?></td>
-				<td><?php echo $image['caption'];?></td>
-				<td class="actions">
-					<?php echo $html->link(__('View', true), array('controller' => 'images', 'action' => 'view', $image['id'])); ?>
-					<?php echo $html->link(__('Edit', true), array('controller' => 'images', 'action' => 'edit', $image['id'])); ?>
-					<?php echo $html->link(__('Delete', true), array('controller' => 'images', 'action' => 'delete', $image['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $image['id'])); ?>
-				</td>
-			</tr>
-		<?php endforeach; ?>
-		</table>
-	<?php endif; ?>
+<?php echo "<pre>"; print_r($product); echo "</pre>";?>
 
 	</div>
 </div>

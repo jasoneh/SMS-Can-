@@ -18,6 +18,7 @@ $featured_products = $this->requestAction('products/featured');
                                                     'action' => 'view',
                                                     $product['Product']['id'])); ?>
                 </h4>
+                <p><img src="http://www.goodhousekeeping.com/cm/goodhousekeeping/images/KR/ghk-kenmore-42-stitch-sewing-machine-0311-smn-1.jpg" /></p>
                 <p><?php echo $product['Product']['description'] ?></p>
                 <?php /* Price box */ ?>
                 <div class="item-purchase">

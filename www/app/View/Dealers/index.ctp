@@ -1,4 +1,5 @@
 <!-- #new products -->
+    <h4>New products</h4>
     <table class="new-products">
         <tr>
             <th>Parts Number</th>

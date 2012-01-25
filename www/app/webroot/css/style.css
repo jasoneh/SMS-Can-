@@ -236,7 +236,7 @@ ul.featured-grid{
         margin: 0;
         padding: 4px;
         width: 23%; /* TODO: Adjust properly */
-        height: 250px;
+        height: 350px;
     }
 
 
@@ -402,8 +402,16 @@ ul.listings{
 
 }
 .item-purchase{
-
     width: 150px;
+
+    background: #EEE;
+    padding: 10px;
+    border: 1px solid #CCC;
+    border-radius: 8px;
+    -moz-box-shadow: -2px 2px 1px 1px #ccc;
+    -webkit-box-shadow: -2px 2px 1px 1px #ccc;
+    box-shadow: -2px 2px 1px 1px #ccc;
+
 }
 .item-purchase label{
     width: 60px;

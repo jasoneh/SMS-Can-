@@ -21,9 +21,9 @@ require_once('products_admin_controller.php');
 class ProductsController extends ProductsAdminController {
 	var $name = 'Products';
 
-	var $helpers = array('Html', 'Session', );
+	var $helpers = array('Html', 'Session', 'Cartform', );
     var $components = array('Auth',);
-    var $uses = array('Product', 'Category', 'Manufacturer', 'User', 'DealerType');
+    var $uses = array('Product', 'Category', 'Manufacturer', 'User', 'DealerType',);
 	var $scaffold;
 
 	// Allow following actions to non logged in users
