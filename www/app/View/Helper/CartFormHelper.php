@@ -32,5 +32,6 @@ class CartformHelper extends AppHelper{
         echo $this->Form->end(__('Buy'));
 
         echo "</div>";
+
     }
 }
