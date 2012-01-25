@@ -2,7 +2,7 @@
 require_once('dealers_admin_controller.php');
 class DealersController extends AdminDealersController {
 
-    var $uses = array('Product', 'Cart',);
+    var $uses = array('Product', 'Cart', 'Dealer', 'Order');
     #var $uses = array('Order', 'Dealers');
     function beforeFilter(){
         parent::beforeFilter();

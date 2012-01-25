@@ -1,14 +1,23 @@
 <?php
 
+
 class AdminDealersController extends AppController{
-    var $name = 'Dealers';
+
     var $helpers = array('Html', 'Form');
-    var $uses = array('Dealer', 'Product', 'Cart', );
+    #var $uses = array('Dealer', 'Product', 'Cart', );
     public $components = array('Auth');
 
+    /*public $paginate = array(
+        'Dealer' => array(
+            'limit' => 25,
+            'order' => array('name' => 'asc')
+        )
+    );*/
+
     public function beforeFilter(){
+
         parent::beforeFilter();
-        $this->layout = 'admin';
+
     }
 
     private function customPagination($dealer_type_id=null){
@@ -26,7 +35,37 @@ class AdminDealersController extends AppController{
         return $pagination_array;
     }
 
-    function admin_index() {
+    function admin_index($category_id=null){
+
+        $this->layout = 'admin';
+        // What fields do we want to display?
+        $fields = array('*', );
+
+        # TODO: Order dealers by name
+        $order = 'Dealer.name ASC';
+        #$this->paginate = array('fields' => $fields,'order' => $order);
+
+        #$this->paginate('Dealer', array(), array('name', 'email'));
+
+        $this->paginate = array(
+            'Dealers' => array(
+                'limit' => 20,
+                'order' => array('name' => 'desc'),
+                #'group' => array('week', 'home_team_id', 'away_team_id')
+            )
+        );
+
+        $dealers = $this->paginate('Dealer');
+		$this->set(compact('dealers'));
+
+
+        #$log = $this->Dealer->getDataSource()->getLog(false, false);
+        #debug($log);
+
+
+    }
+
+    function old_admin_index() {
 
         $this->paginate = $this->customPagination();
         $dealers = $this->paginate('Dealer');
@@ -35,6 +74,8 @@ class AdminDealersController extends AppController{
 	}
 
 	function admin_view($id = null) {
+        $this->layout = 'admin';
+
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid Dealer', true));
 			$this->redirect(array('action' => 'index'));
@@ -66,6 +107,7 @@ class AdminDealersController extends AppController{
 
     public function admin_edit($id=null){
 
+        $this->layout = 'admin';
         $this->Dealer->id = $id;
 
         # GET request
