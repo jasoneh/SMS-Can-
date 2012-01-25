@@ -62,16 +62,17 @@ foreach ($products as $product):
 			<?php echo $product['Product']['detail_french']; ?>
 		</td>
 		<td>
+
 			<?php
                 if($product['Product']['new'] == 1){
-                    echo '<img src="/smscanada/grappelli/img/icons/icon-yes.png" />';
+                    echo '<img src="'.Configure::read('page_root').'/grappelli/img/icons/icon-yes.png" />';
                 };
             ?>
 		</td>
 		<td>
 			<?php
                 if($product['Product']['sale'] == 1){
-                    echo '<img src="/smscanada/grappelli/img/icons/icon-yes.png" />';
+                    echo '<img src="'.Configure::read('page_root').'/grappelli/img/icons/icon-yes.png" />';
                 };
             ?>
 		</td>
