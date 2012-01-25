@@ -3,6 +3,9 @@
 
 <?php
     $PAGE_ROOT = "";
+    if($_SERVER['SERVER_ADDR'] == '::1'){
+        $PAGE_ROOT = "http://localhost:8888/smscanada/app/webroot/";
+    }
 ?>
 <head>
     <title><?php echo $title_for_layout ?></title>
