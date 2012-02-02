@@ -27,6 +27,16 @@ class CategoriesAdminController extends Controller{
 
     }
 
+    function admin_view($id = null) {
+        $this->layout = 'admin';
+        if (!$id) {
+            $this->Session->setFlash(__('Invalid Category', true));
+            $this->redirect(array('action' => 'index'));
+        }
+        $category = $this->Category->read(null, $id);
+        $this->set(compact('category'));
+    }
+
 
     function admin_edit($id=null){
         $this->layout = 'admin';
