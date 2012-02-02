@@ -37,7 +37,7 @@ foreach ($categories as $category):
 			<?php echo $category['Category']['description_fr']; ?>
 		</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $category['Category']['id'])); ?>
+			<?php echo $this->Html->link(__('View', true), array('action' => 'admin_view', $category['Category']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $category['Category']['id'])); ?>
 			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $category['Category']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $category['Category']['id'])); ?>
 		</td>
