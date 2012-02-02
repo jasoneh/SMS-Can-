@@ -99,7 +99,7 @@ foreach ($dealers as $dealer):
 			<?php echo $dealer['Dealer']['active']; ?>
 		</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $dealer['Dealer']['id'])); ?>
+			<?php echo $this->Html->link(__('View', true), array('controller' => 'admin_categories', 'action' => 'view', $dealer['Dealer']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $dealer['Dealer']['id'])); ?>
 			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $dealer['Dealer']['id']),
                                    null, sprintf(__('Are you sure you want to delete # %s?', true),
