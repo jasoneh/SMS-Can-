@@ -22,6 +22,7 @@
  */
 
     Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
+    Router::connect('/smscanada/', array('controller' => 'pages', 'action' => 'display', 'home'));
     Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
     #Router::connect('/admin/', array('controller' => 'users', 'action' => 'index','add', 'admin' => true,'prefix' => 'admin','layout' => 'admin'));

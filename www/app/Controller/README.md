@@ -9,4 +9,8 @@ Controllers for a model are split up in two different classes
     ModelController extends ModelAdminController in order to make the admin functions accessible.
     ModelAdminController extends Controller as a regular controller.
 
-    
+
+
+    Find currently logged on user in the controller
+    ================================================
+    $user_id = AuthComponent::user('id');

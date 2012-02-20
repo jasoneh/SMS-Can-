@@ -10,40 +10,58 @@ $featured_products = $this->requestAction('products/featured');
 <div id="featured">
     <h4>Featured products</h4>
     <ul class="featured-grid">
-        <?php foreach($featured_products as $product): ?>
+        <?php foreach($featured_products as $product):
+            $price = $product['Product']['price'];
+            if(!$price) $price = "Not available";
+        ?>
             <li class="item">
-                <?php #print_r($product); ?>
-                <h4><?php echo $this->Html->link($product['Product']['name'],
-                                              array('controller' => 'products',
-                                                    'action' => 'view',
-                                                    $product['Product']['id'])); ?>
+                <h4 class="item-name">
+                <?php
+                    $name = $product['Product']['name'];
+                    if(!$name){ $name = "No name"; }
+                    echo $this->Html->link($name,
+                        array('controller' => 'products',
+                              'action' => 'view',
+                               $product['Product']['id']));
+                ?>
                 </h4>
-                <p><img src="http://www.goodhousekeeping.com/cm/goodhousekeeping/images/KR/ghk-kenmore-42-stitch-sewing-machine-0311-smn-1.jpg" /></p>
-                <p><?php echo $product['Product']['description'] ?></p>
+
+                <div class="item-thumbnail">
+                    <img src="http://www.goodhousekeeping.com/cm/goodhousekeeping/images/KR/ghk-kenmore-42-stitch-sewing-machine-0311-smn-1.jpg" />
+                </div>
+
+                <div class="item-description">
+                    <p><?php #echo $product['Manufacturer']['name'] ?></p>
+                    <p><?php echo $product['Product']['description'] ?></p>
+                </div>
+
+                <div class="item-price">
+                    $ <?php echo $price ?>
+                </div>
+
+                <div class="">
+                    <?php
+                        echo $this->Html->link(__('Read more'), array('controller' => 'products', 'action' => 'view', $product['Product']['id']));
+                    ?>
+                </div>
+
                 <?php /* Price box */ ?>
-                <div class="item-purchase">
-                    <?
-                        $price = $product['Product']['price'];
-                        if(!$price) $price = "Not available" ?>
-                    <p class="item-price">$ <?php echo $price?> </p>
+
+                    <?php
+                    /*
+                    <div class="item-purchase">
+                    <div class="item-price">$ <?php echo $price?> </div>
 
                     <?php echo $this->Form->create('Carts', array('type' => 'post', 'action' => '/add/'));?>
-
                         <?php
                             echo $this->Form->input('qty', array('class' => 'quantity-input', 'label' => 'Quantity', 'value' => 1));
                             echo $this->Form->hidden('product_id', array('value' => $product['Product']['id']));
                         ?>
-
                     <?php echo $this->Form->end(__('Buy'));?>
+                    </div>
+                    */
+                    ?>
 
-                    <!--<a href="" class="awesome green">Add to cart</a>-->
-                    <?php /*echo $this->Html->link(
-                            'Add to cart',
-                            array('controller' => 'cart', 'action' => 'add', $value['Product']['id']),
-                            array('class' => 'awesome green')
-                        )
-                    */?>
-                </div>
                 <div style="clear: both"></div>
             </li>
         <?php endforeach; ?>

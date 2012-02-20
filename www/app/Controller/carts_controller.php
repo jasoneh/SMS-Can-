@@ -15,10 +15,9 @@ require_once('carts_admin_controller.php');
 class CartsController extends AdminCartsController {
 
 	var $name = 'Carts';
-
 	var $helpers = array('Html', 'Session', );
     var $components = array('Auth', 'Session',);
-    var $uses = array('Auth', 'Product', 'Cart', );
+    var $uses = array('Auth', 'Product', 'Cart', 'Dealer', 'Order', 'OrderItem', 'OrderStatus');
 	#var $scaffold;
 
 	// Allow following actions to non logged in users
@@ -154,8 +153,111 @@ class CartsController extends AdminCartsController {
      * @return void
      */
     public function show(){
+        $items = $this->get_cart_contents();
+
+        $this->set(compact('items'));
+
+    }
+
+    /**
+     * This method is called from cart_contents.ctp
+     * @return array|null
+     */
+    public function content(){
+
+        $items = $this->get_cart_contents();
+        return $items;
+    }
+
+    public function delete_row($id=null){
+        if(!$id){
+            $this->Session->setFlash(__('Invalid id for item', true));
+        }
+        if($this->dealer_owns_cart_item($id)){
+            if($this->Cart->delete($id)){
+                $this->Session->setFlash(__("Item(s) was removed", true));
+            }else{
+                $this->Session->setFlash(__("Could not remove item(s) from cart"));
+            }
+        }
+        $this->redirect(array('controller' => 'carts', 'action' => 'index'));
+    }
+
+    /**
+     * Customer checks out ordered goods
+     * TODO: Allow the dealer to set his/her preferred shipping method
+     * @return void
+     */
+    public function checkout(){
 
         $user_id = AuthComponent::user('id');
+        $dealer = $this->Dealer->find('all', array('conditions' => array('user_id' => $user_id)));
+        $dealer = $dealer[0];
+        $items = $this->get_cart_contents();
+
+        if($this->request->is('post')){
+            /*
+             * Send email notification to SMScanada
+             * Send email notification to dealer about recently checked out goods
+             * Store cart state as order list in DB
+             */
+            if($this->create_order_instance($items)){
+
+                $this->purge_cart_contents();
+                $this->send_success_email($items);
+                $this->Session->setFlash('Your order was placed successfully');
+                $this->redirect(array('controller' => 'carts', 'action' => 'complete'));
+            }else{
+                $this->Session->setFlash('Order was not placed. Something went wrong');
+                $this->redirect(array('controller' => 'carts', 'action' => 'checkout'));
+            }
+        }
+
+        $this->set(compact('items', 'dealer'));
+    }
+
+
+    /**
+     * Checkout has been completed successfully
+     * This page shall show information on the purchase
+     * @return void
+     */
+    public function complete(){
+        // TODO: Move this into a generic place, such as the AppController
+        $user_id = AuthComponent::user('id');
+        $dealer = $this->Dealer->find('all', array('conditions' => array('user_id' => $user_id)));
+        if(!empty($dealer)){
+            $order = $this->Order->find('all', array(
+                'conditions' => array('dealer_id' => $dealer[0]['Dealer']['id']),
+                'order' => array('Order.created' => 'DESC'),
+                'limit' => 1,
+                'recursive' => 2));
+
+            $this->set(compact('order'));
+        }
+    }
+
+
+    // PRIVATE MEMBER FUNCTIONS
+
+    private function dealer_owns_cart_item($id){
+        # TODO: Fix this method
+        $user_id = AuthComponent::user('id');
+        $cart_items = $this->Cart->find('list', array( 'conditions' => array('id' => $id, 'user_id' => $user_id)));
+        if(!empty($cart_items)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Returns the contents from
+     * @return array|null
+     */
+    private function get_cart_contents(){
+
+        $user_id = AuthComponent::user('id');
+        $dealer = $this->Dealer->find('list', array('conditions' => array('user_id' => $user_id)));
         $items = $this->Cart->find('all', array('conditions' => array(
                                                     'user_id' => $user_id),
                                                 'fields' => array(
@@ -183,25 +285,97 @@ class CartsController extends AdminCartsController {
             $total_quantity += $item['Cart']['qty'];
         }
 
-        $meta = array('total_cost' => $total_cost, 'total_quantity' => $total_quantity);
+        $dealer_id = $dealer_email = "";
+        foreach($dealer as $key => $value){
+            $dealer_id = $key;
+            $dealer_email = $value;
+        }
+
+        $meta = array(
+            'total_cost' => $total_cost,
+            'total_quantity' => $total_quantity,
+            'dealer' => array(
+                'id' => $dealer_id,
+                'email' => $dealer_email
+            )
+        );
         $n_items['Meta'] = $meta;
 
         $items = $n_items;
         $n_items = null;
         #echo "<pre>"; echo "<br/>"; print_r($items); echo "</pre>";
-        $this->set(compact('items'));
-
+        return $items;
     }
 
-    public function deleterow($id=null){
-        echo "deleting a single row from the cart";
 
-    }
     /**
-     * Customer checks out ordered goods
+     * Delete users current cart contents
+     * @return bool
+     */
+    private function purge_cart_contents(){
+        return true;
+    }
+
+
+    /**
+     * Create an order from a dealers cart upon checkout
+     * @param $items
+     * @return bool
+     */
+    private function create_order_instance($items){
+
+        // First we create a record in the 'orders' table.
+        // This table holds information on a particular order.
+        // Items are stored as individual rows in the 'order_items' table
+        $order_status = $this->OrderStatus->find('list', array('conditions' => array('id' => 1)));
+
+        $order_id = null;
+        $order_keys = array_keys($order_status);
+        $order_id = $order_keys[0];
+
+        $this->Order->create(array('Order' => array(
+                                 'dealer_id' => $items['Meta']['dealer']['id'],
+                                 'order_status_id' => $order_id,
+                             )));
+
+        if($this->Order->save()){
+
+            // Saving all the individual items in the Cart to the 'order_items' table
+            foreach($items['Items'] as $key => $value){
+                $order_item = array(
+                    'order_id' => $this->Order->id,
+                    'product_id' => $value['Product']['id'],
+                    'qty' => $value['Cart']['qty'],
+                    'price_per_unit' => $value['Product']['price'],
+                    'created' => '',
+                    'modified' => ''
+                );
+                $this->OrderItem->create($order_item);
+                $this->OrderItem->save();
+
+            }
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Upon successful checkout, send a confirmation email to the dealer
+     * @param $items
      * @return void
      */
-    public function checkout(){
+    private function send_success_email($items){
+
+        App::uses('CakeEmail', 'Network/Email');
+        $body = "<pre> Thank you for placing your order with us! <br/> </pre>\n" . $items;
+
+        // TODO: Store this data in the database and allow admins to make changes to data.
+        $email = new CakeEmail();
+        $email->from(array('purchase@smscanada.com' => 'SMS-Canada'));
+        $email->to('mathias.tervo@gmail.com');
+        $email->subject('Thank you for your order - Merci pour votre commande');
+        $email->send($body);
 
     }
+
 }

@@ -20,6 +20,15 @@ class OrderItem extends AppModel{
             'fields' => '',
             'order' => ''
         ),
+
+        // TODO: This doesn't feel correct, it should be hasOne not belongsTo ?
+
+        'Product' => array(
+            'className' => 'Product',
+            'foreignKey' => 'product_id'
+        )
     );
+
+
 
 }

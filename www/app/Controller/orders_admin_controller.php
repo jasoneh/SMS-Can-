@@ -1,6 +1,6 @@
 <?php
 
-class AdminOrderController extends AppController{
+class OrdersAdminController extends AppController{
 
     var $uses = array('Order', 'Dealers');
     #var $components = array('Dealer', );

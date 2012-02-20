@@ -43,7 +43,6 @@
                 <li><?php echo $this->Html->link($next_language, '/languages/toggle'); ?></li>
                 <li><?php echo $this->Html->link(__('Contact'), array('controller' => 'contacts', 'action' => 'add') ); ?></li>
                 <li><?php echo $this->Html->link(__('Dealers'), array('controller' => 'dealers', 'action' => 'index' ) ); ?></li>
-
                 <li><?php echo $this->Html->link(__('Parts charts'), array('controller' => 'pages', 'action' => 'partscharts' ) ); ?></li>
                 <li><?php echo $this->Html->link(__('Products'), array('controller' => 'products', 'action' => 'index' ) ); ?></li>
             </ul>
@@ -52,6 +51,8 @@
 </header>
 
 <section id="mainsection">
+
+    <?php echo $this->Session->flash(); ?>
 
     <div class="container_12 main box_shadow">
         <div class="grid_12">
