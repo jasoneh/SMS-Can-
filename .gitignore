@@ -5,3 +5,5 @@
 www2.0/
 www/app/tmp/
 slask/
+*.tar
+*.tar.gz
