@@ -17,7 +17,33 @@ class ContactsController extends AppController{
      * @return void
      */
     public function add(){
+        if($this->data){
 
+            $this->Contact->set($this->data);
+
+            $from = $this->data['Contact']['email'];
+            $name = $this->data['Contact']['name'];
+            $message = $this->data['Contact']['text'];
+
+            // TODO: Fix validation on this data
+            App::uses('CakeEmail', 'Network/Email');
+
+            // TODO: Store this data in the database and allow admins to make changes to data.
+            $email = new CakeEmail();
+            $email->from(array($from => $name));
+            $email->to('mathias.tervo@gmail.com');
+            $email->subject('Contact Form - SMSCanada.com');
+            $email->send($message);
+
+            $this->Session->setFlash('Thank you for your message!');
+            $this->redirect(array('controller' => 'pages', 'action' => 'index'));
+
+        }
+    }
+
+    public function add_old(){
+
+        App::uses('CakeEmail', 'Network/Email');
         if($this->request->is('post')){
             try{
                 $email = new CakeEmail();

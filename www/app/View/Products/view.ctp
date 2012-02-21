@@ -14,7 +14,7 @@
      */
     if($lang == 'en'){
         $name = $product['Product']['name_french'];
-        $description = $product['Product']['description_fr'];
+        $description = $product['Product']['description_french'];
     }else{
         $name = $product['Product']['name'];
         $description = $product['Product']['description'];
