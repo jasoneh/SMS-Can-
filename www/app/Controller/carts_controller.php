@@ -195,6 +195,12 @@ class CartsController extends AdminCartsController {
         $dealer = $dealer[0];
         $items = $this->get_cart_contents();
 
+        // if no items in cart, redirect user back to previous page
+        if(!sizeof($items['Items']) > 0){
+            $this->Session->setFlash('You cannot checkout with an empty cart');
+            $this->redirect($this->referer());
+        }
+
         if($this->request->is('post')){
             /*
              * Send email notification to SMScanada
@@ -203,7 +209,7 @@ class CartsController extends AdminCartsController {
              */
             if($this->create_order_instance($items)){
 
-                $this->purge_cart_contents();
+                $this->purge_cart_contents($dealer['Dealer']['id']);
                 $this->send_success_email($items);
                 $this->Session->setFlash('Your order was placed successfully');
                 $this->redirect(array('controller' => 'carts', 'action' => 'complete'));
@@ -312,7 +318,11 @@ class CartsController extends AdminCartsController {
      * Delete users current cart contents
      * @return bool
      */
-    private function purge_cart_contents(){
+    private function purge_cart_contents($dealer_id){
+        $cart_items = $this->Cart->find('all', array('conditions' => array('user_id' , $dealer_id)));
+        foreach($cart_items as $item){
+            $this->Cart->delete($item['Cart']['id']);
+        }
         return true;
     }
 
