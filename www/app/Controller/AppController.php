@@ -3,10 +3,14 @@ class AppController extends Controller {
 
     public $components = array(
         'Session',
+        'Auth',
         #'Auth' => array(
         #    'loginRedirect' => array('controller' => 'products', 'action' => 'index'),    # Causes redirect loop
         #    'logoutRedirect' => array('controller' => 'products', 'action' => 'display', 'home')
         #)
+    );
+    public $uses = array(
+        'Dealer',
     );
 
     function s__construct(){
@@ -51,4 +55,9 @@ class AppController extends Controller {
 
     }
 
+    public function getCurrentDealer(){
+        $user_id = AuthComponent::user('id');
+        $dealer = $this->Dealer->find('all', array('conditions' => array('user_id' => $user_id)));
+        return $dealer;
+    }
 }

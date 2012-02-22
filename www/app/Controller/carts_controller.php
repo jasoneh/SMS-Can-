@@ -175,12 +175,12 @@ class CartsController extends AdminCartsController {
         }
         if($this->dealer_owns_cart_item($id)){
             if($this->Cart->delete($id)){
-                $this->Session->setFlash(__("Item(s) was removed", true));
+                $this->Session->setFlash(__("Item(s) was removed"));
             }else{
                 $this->Session->setFlash(__("Could not remove item(s) from cart"));
             }
         }
-        $this->redirect(array('controller' => 'carts', 'action' => 'index'));
+        $this->redirect(array('controller' => 'carts', 'action' => 'show'));
     }
 
     /**
@@ -192,7 +192,11 @@ class CartsController extends AdminCartsController {
 
         $user_id = AuthComponent::user('id');
         $dealer = $this->Dealer->find('all', array('conditions' => array('user_id' => $user_id)));
-        $dealer = $dealer[0];
+        try{
+            $dealer = $dealer[0];
+        }catch(Exception $e){
+
+        }
         $items = $this->get_cart_contents();
 
         // if no items in cart, redirect user back to previous page
@@ -200,6 +204,8 @@ class CartsController extends AdminCartsController {
             $this->Session->setFlash('You cannot checkout with an empty cart');
             $this->redirect($this->referer());
         }
+
+        $credentials_are_met = $this->credentials_are_met($dealer);
 
         if($this->request->is('post')){
             /*
@@ -219,7 +225,8 @@ class CartsController extends AdminCartsController {
             }
         }
 
-        $this->set(compact('items', 'dealer'));
+
+        $this->set(compact('items', 'dealer', 'credentials_are_met'));
     }
 
 
@@ -245,6 +252,18 @@ class CartsController extends AdminCartsController {
 
 
     // PRIVATE MEMBER FUNCTIONS
+
+    /**
+     * Ensure that the dealer has filled out all necessary information
+     * before allowing placing of order
+     *
+     * @param $dealer
+     * @return bool
+     */
+    private function credentials_are_met($dealer){
+        // TODO: Do the actual thing!
+        return true;
+    }
 
     private function dealer_owns_cart_item($id){
         # TODO: Fix this method

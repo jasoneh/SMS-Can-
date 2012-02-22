@@ -70,9 +70,9 @@ class DealersController extends AdminDealersController {
      * List a dealers order history
      */
     function orders(){
-        $dealer = $this->getCurrentDealer();
-        $orders = $this->Order->find('list', array('conditions' => array('dealer_id' => $dealer[0]['Dealer']['id'])));
 
+        $dealer = AppController::getCurrentDealer();
+        $orders = $this->Order->find('all', array('conditions' => array('dealer_id' => $dealer[0]['Dealer']['id'])));
         $this->set(compact('orders'));
     }
 
@@ -81,7 +81,8 @@ class DealersController extends AdminDealersController {
      * @return void
      */
     function specials(){
-        $dealer = $this->getCurrentDealer();
+        #$dealer = $this->getCurrentDealer();
+        $dealer = AppController::getCurrentDealer();
     }
 
     /**
@@ -113,9 +114,12 @@ class DealersController extends AdminDealersController {
      * Return currently logged in dealer
      * @return void
      */
-    private function getCurrentDealer(){
+    /*
+     * Moved into the AppController ! this shall be removed
+    public function getCurrentDealer(){
         $user_id = AuthComponent::user('id');
         $dealer = $this->Dealer->find('all', array('conditions' => array('user_id' => $user_id)));
         return $dealer;
     }
+    */
 }
