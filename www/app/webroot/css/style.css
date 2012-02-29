@@ -81,11 +81,17 @@ header{
         /*padding: 0 0 0 20px;*/
     }
 
-.olive{
+.olive a{
     color: #6b8e23;
 }
-.grey{
+.olive a{
+    text-decoration: none;
+}
+.grey a{
     color: #d3d3d3;
+}
+.grey a:hover{
+    text-decoration: none;
 }
 
 
@@ -117,8 +123,12 @@ section#mainsection{
     }
 
 .footer{
-    border-top: 1px solid #39f;
+    /* border-top: 1px solid #39f; */
     padding-top: 12px;
+/*
+    background: #3F3F3F;
+    color: #fff;
+*/
 }
 
 .sidebar-left{
@@ -134,60 +144,16 @@ ul{
     list-style-type: none;
 }
 
-/*
-#top-row{
-    height: 121px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 99;
-}
-#header-top{
-
-    padding:  8px;
-}
-.header-menu{
-    border-bottom: 4px solid #eee;
-}
-*/
-/*
-.navmenu ul {
-    margin: 0;
-    padding: 8px;
-	list-style-type: none;
-    list-style-image: none;
-}
-
-    .navmenu li {
-        display: inline;}
-
-        .navmenu ul li a {
-            font-size: 18px;
-            font-weight: bold;
-            text-shadow: 0 1px 0 #EEEEEC;
-            color: #c60;
-            margin-right: 24px;
-            text-decoration: none;
-            border-bottom:  2px solid #c60;
-        }
-        .navmenu ul li a:hover {
-            color: #39f;
-        }
-
-.navleft{
-    float: left;
-}
-.navright{
-    float: right;
-}
-*/
 
 /* Tables */
 table{
     border-collapse: collapse;
-
+    width: 100%;
 }
     tr{
         border-bottom:  1px solid #303030;
+        border-left: 1px solid #303030;
+        border-right: 1px solid #303030;
     }
     th, td{
         padding: 8px;
@@ -215,6 +181,18 @@ table{
 #search-submit{
 
 }
+
+/* Category list */
+#categories{
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #CCC;
+    border-radius: 8px;
+    -moz-box-shadow: -2px 2px 1px 1px #ccc;
+    -webkit-box-shadow: -2px 2px 1px 1px #ccc;
+    box-shadow: -2px 2px 1px 1px #ccc;
+}
+
 
 /* Listings */
 
@@ -371,12 +349,26 @@ ul.listings{
 
 /** DEALER AREA */
 
+#dealer-menu{
+    background: #EEE;
+    border: 1px solid #ccc;
+    padding: 0 8px 0 4px;
+    margin-bottom: 24px;
+}
 #dealer-menu ul{
-    background: #303030;
+
 }
-#dealer-menu ul li{
-    float: left;
-}
+    #dealer-menu ul li{
+
+        float: left;
+
+        padding: 4px 8px 0 8px;
+        border-top: 1px #000;
+
+    }
+        #dealer-menu ul li a{
+            font-family: sans-serif;
+        }
 
 /* admin (has moved to grappelli) */
 

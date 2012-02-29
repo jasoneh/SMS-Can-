@@ -9,6 +9,7 @@ echo $this->Element('dealers_menu');
         <th>Date</th>
         <th>Nof articles</th>
         <th>Value</th>
+        <th>Sum</th>
     </tr>
 <?php foreach($orders as $order): ?>
 

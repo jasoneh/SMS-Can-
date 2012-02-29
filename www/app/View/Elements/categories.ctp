@@ -5,8 +5,9 @@
  */
 ?>
 
+
+<ul id="categories">
 <h4>Categories</h4>
-<ul>
 <?php
 // retrieve categories returned from method 'all()' in 'categories_controller.php'
 $categories = $this->requestAction('categories/all');

@@ -37,7 +37,11 @@
         <div class="container_12">
             <ul class="clearfix">
 
-                <li class="nav-home"><a href=""><span class="olive">SMS</span><span class="grey">Canada</span></a></li>
+                <!--- <li class="nav-home"><a href=""><span class="olive">SMS</span><span class="grey">Canada</span></a></li> --->
+                <li class="nav-home">
+                    <span class="olive"><?php echo $this->Html->link('SMS', array('controller' => 'pages', 'action' => 'index')); ?></span>
+                    <span class="grey"><?php echo $this->Html->link('Canada', array('controller' => 'pages', 'action' => 'index')); ?></span>
+                </li>
                 <!--<li class="nav-last"><span class="olive">Login</span> </li>-->
                 <?php echo $this->element('login_logout'); ?>
                 <li><?php echo $this->Html->link($next_language, '/languages/toggle'); ?></li>
@@ -96,7 +100,7 @@
         </div>
         <!-- end .grid_9 -->
 
-        <div class="grid_12">
+        <div class="grid_12 footer">
             <p>
               SMSCanada -footer 940
             </p>
